@@ -105,8 +105,9 @@ export function createQuestionCard(question, displayIndex, opts = {}) {
     figureEl.hidden = true;
   }
 
-  // Mô hình tương tác GeoGebra (nếu có)
+  // Mô hình tương tác GeoGebra (nếu có, hiển thị trong lời giải)
   const ggbWrap = /** @type {HTMLElement|null} */ (card.querySelector('.question-card__geogebra'));
+  const accTitleEl = /** @type {HTMLElement|null} */ (card.querySelector('.accordion__title'));
   if (ggbWrap) {
     if (question.geogebra?.file) {
       const ggbLink = /** @type {HTMLAnchorElement} */ (ggbWrap.querySelector('.geogebra-link'));
@@ -119,6 +120,11 @@ export function createQuestionCard(question, displayIndex, opts = {}) {
         : '📐 Xem & tương tác trên GeoGebra';
       ggbDownload.href = question.geogebra.file;
       ggbWrap.hidden = false;
+      if (accTitleEl) {
+        accTitleEl.textContent = question.geogebra.app === '3d'
+          ? '💡 Xem lời giải · 🧊 Có hình 3D GeoGebra'
+          : '💡 Xem lời giải · 📐 Có hình GeoGebra';
+      }
     } else {
       ggbWrap.hidden = true;
     }
@@ -237,8 +243,8 @@ export function createQuestionCard(question, displayIndex, opts = {}) {
 
   // Lời giải (Accordion)
   const accEl = /** @type {HTMLElement} */ (card.querySelector('.accordion'));
-  const accInner = /** @type {HTMLElement} */ (card.querySelector('.accordion__inner'));
-  accInner.textContent = question.explanation || 'Chưa có lời giải chi tiết cho câu hỏi này.';
+  const accText = /** @type {HTMLElement} */ (card.querySelector('.accordion__text') || card.querySelector('.accordion__inner'));
+  accText.textContent = question.explanation || 'Chưa có lời giải chi tiết cho câu hỏi này.';
   accEl.hidden = true;
 
   // Áp trạng thái ban đầu

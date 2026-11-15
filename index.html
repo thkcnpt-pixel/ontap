@@ -638,15 +638,6 @@
         <img class="question-card__image" alt="Hình minh họa câu hỏi" loading="lazy" decoding="async" />
       </figure>
 
-      <div class="question-card__geogebra" hidden>
-        <a class="btn btn--ghost btn--sm geogebra-link" href="#" target="_blank" rel="noopener noreferrer">
-          📐 Xem &amp; tương tác trên GeoGebra
-        </a>
-        <a class="btn btn--ghost btn--sm geogebra-download" href="#" download>
-          ⬇️ Tải .ggb
-        </a>
-      </div>
-
       <!-- MCQ & Đúng/Sai: các nút đáp án -->
       <div class="question-card__options" role="radiogroup"></div>
 
@@ -661,11 +652,21 @@
       <!-- Lời giải dạng Accordion -->
       <div class="accordion" hidden>
         <button type="button" class="accordion__trigger" aria-expanded="false">
-          <span>💡 Xem lời giải</span>
+          <span class="accordion__title">💡 Xem lời giải</span>
           <span class="accordion__chevron" aria-hidden="true">▾</span>
         </button>
         <div class="accordion__panel" role="region">
-          <div class="accordion__inner math-content"></div>
+          <div class="accordion__inner">
+            <div class="accordion__text math-content"></div>
+            <div class="question-card__geogebra" hidden>
+              <a class="btn btn--ghost btn--sm geogebra-link" href="#" target="_blank" rel="noopener noreferrer">
+                📐 Xem &amp; tương tác trên GeoGebra
+              </a>
+              <a class="btn btn--ghost btn--sm geogebra-download" href="#" download>
+                ⬇️ Tải .ggb
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </article>
