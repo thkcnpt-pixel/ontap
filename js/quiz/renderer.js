@@ -105,6 +105,25 @@ export function createQuestionCard(question, displayIndex, opts = {}) {
     figureEl.hidden = true;
   }
 
+  // Mô hình tương tác GeoGebra (nếu có)
+  const ggbWrap = /** @type {HTMLElement|null} */ (card.querySelector('.question-card__geogebra'));
+  if (ggbWrap) {
+    if (question.geogebra?.file) {
+      const ggbLink = /** @type {HTMLAnchorElement} */ (ggbWrap.querySelector('.geogebra-link'));
+      const ggbDownload = /** @type {HTMLAnchorElement} */ (ggbWrap.querySelector('.geogebra-download'));
+      const titleText = question.geogebra.title || `Câu ${displayIndex + 1} · Hình tương tác GeoGebra`;
+      const viewerUrl = `geogebra.html?file=${encodeURIComponent(question.geogebra.file)}&app=${encodeURIComponent(question.geogebra.app || 'classic')}&title=${encodeURIComponent(titleText)}`;
+      ggbLink.href = viewerUrl;
+      ggbLink.textContent = question.geogebra.app === '3d'
+        ? '🧊 Xem & tương tác 3D trên GeoGebra'
+        : '📐 Xem & tương tác trên GeoGebra';
+      ggbDownload.href = question.geogebra.file;
+      ggbWrap.hidden = false;
+    } else {
+      ggbWrap.hidden = true;
+    }
+  }
+
   const optionsWrap = /** @type {HTMLElement} */ (card.querySelector('.question-card__options'));
   const shortForm = /** @type {HTMLFormElement} */ (card.querySelector('.question-card__short'));
   const shortInput = /** @type {HTMLInputElement} */ (card.querySelector('.short-input'));

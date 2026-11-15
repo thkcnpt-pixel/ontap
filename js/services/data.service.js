@@ -708,6 +708,19 @@ function normalizeQuestion(raw, ctx) {
     lessonId: ctx.lessonId || null,
     question,
     image: typeof raw.image === 'string' && raw.image.trim() ? raw.image.trim() : null,
+    geogebra: (() => {
+      if (typeof raw.geogebra === 'string' && raw.geogebra.trim()) {
+        return { file: raw.geogebra.trim(), app: 'classic', title: '' };
+      }
+      if (raw.geogebra && typeof raw.geogebra === 'object' && typeof raw.geogebra.file === 'string' && raw.geogebra.file.trim()) {
+        return {
+          file: raw.geogebra.file.trim(),
+          app: raw.geogebra.app === '3d' ? '3d' : 'classic',
+          title: typeof raw.geogebra.title === 'string' ? raw.geogebra.title.trim() : '',
+        };
+      }
+      return null;
+    })(),
     explanation: typeof raw.explanation === 'string' ? raw.explanation.trim() : '',
     shuffle: raw.shuffle !== false,
   };

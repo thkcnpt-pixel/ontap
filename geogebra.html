@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xem hình tương tác GeoGebra · Ôn tập THPT</title>
+  <link rel="stylesheet" href="css/variables.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: var(--c-bg);
+      color: var(--c-text);
+      font-family: var(--font-sans);
+      overflow: hidden;
+    }
+    .ggb-shell {
+      display: flex;
+      flex-direction: column;
+      height: 100dvh;
+      width: 100vw;
+    }
+    .ggb-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 16px;
+      background: var(--c-bg-elevated);
+      border-bottom: 1px solid var(--c-border);
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+    .ggb-topbar__left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      flex: 1 1 260px;
+    }
+    .ggb-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--c-primary-soft);
+      color: var(--c-primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .ggb-title {
+      margin: 0;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--c-text);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .ggb-topbar__actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .ggb-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--c-border);
+      background: var(--c-surface);
+      color: var(--c-text);
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .ggb-btn:hover {
+      background: var(--c-surface-hover);
+      border-color: var(--c-border-strong);
+    }
+    .ggb-btn--primary {
+      background: var(--c-primary);
+      border-color: var(--c-primary);
+      color: var(--c-text-invert);
+      font-weight: 600;
+    }
+    .ggb-btn--primary:hover {
+      background: var(--c-primary-hover);
+      border-color: var(--c-primary-hover);
+    }
+    .ggb-stage {
+      position: relative;
+      flex: 1 1 auto;
+      width: 100%;
+      background: #ffffff;
+      overflow: hidden;
+    }
+    #ggb-container {
+      width: 100%;
+      height: 100%;
+    }
+    .ggb-status {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 24px;
+      text-align: center;
+      background: var(--c-bg);
+      color: var(--c-text);
+      z-index: 10;
+    }
+    .ggb-status[hidden] { display: none; }
+    .ggb-status p {
+      margin: 0;
+      max-width: 480px;
+      color: var(--c-text-muted);
+      line-height: 1.5;
+    }
+    .ggb-spinner {
+      width: 34px;
+      height: 34px;
+      border: 3px solid var(--c-border);
+      border-top-color: var(--c-primary);
+      border-radius: 50%;
+      animation: ggb-spin 0.8s linear infinite;
+    }
+    @keyframes ggb-spin { to { transform: rotate(360deg); } }
+    @media (max-width: 640px) {
+      .ggb-topbar { padding: 8px 12px; }
+      .ggb-btn span.ggb-btn__text { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ggb-shell">
+    <header class="ggb-topbar">
+      <div class="ggb-topbar__left">
+        <span class="ggb-badge" id="ggb-mode-badge">📐 GeoGebra</span>
+        <h1 class="ggb-title" id="ggb-title">Đang tải mô hình tương tác...</h1>
+      </div>
+      <div class="ggb-topbar__actions">
+        <button type="button" class="ggb-btn" id="btn-reset" title="Đặt lại hình ban đầu" hidden>
+          🔄 <span class="ggb-btn__text">Đặt lại</span>
+        </button>
+        <a class="ggb-btn ggb-btn--primary" id="btn-download" href="#" download hidden>
+          ⬇️ <span class="ggb-btn__text">Tải file .ggb</span>
+        </a>
+        <button type="button" class="ggb-btn" id="btn-close" title="Đóng cửa sổ">
+          ✕ <span class="ggb-btn__text">Đóng</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="ggb-stage">
+      <div class="ggb-status" id="ggb-loading">
+        <div class="ggb-spinner" aria-hidden="true"></div>
+        <strong>Đang khởi tạo GeoGebra tương tác...</strong>
+        <p>Bạn có thể kéo thanh trượt, xoay hình 3D, phóng to/thu nhỏ trực tiếp sau khi tải xong.</p>
+      </div>
+
+      <div class="ggb-status" id="ggb-error" hidden>
+        <strong>Không thể tải trình xem GeoGebra trực tuyến</strong>
+        <p id="ggb-error-msg">Có thể thiết bị đang ngoại tuyến hoặc đường dẫn file không hợp lệ. Bạn vẫn có thể tải file .ggb về để mở bằng ứng dụng GeoGebra.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+          <a class="ggb-btn ggb-btn--primary" id="btn-error-download" href="#" download hidden>⬇️ Tải file .ggb</a>
+          <button type="button" class="ggb-btn" onclick="location.reload()">↻ Thử lại</button>
+        </div>
+      </div>
+
+      <div id="ggb-container"></div>
+    </main>
+  </div>
+
+  <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const rawFile = params.get('file') || '';
+      const rawTitle = params.get('title') || 'Mô hình tương tác GeoGebra';
+      const rawApp = params.get('app') === '3d' ? '3d' : 'classic';
+
+      const titleEl = document.getElementById('ggb-title');
+      const badgeEl = document.getElementById('ggb-mode-badge');
+      const loadingEl = document.getElementById('ggb-loading');
+      const errorEl = document.getElementById('ggb-error');
+      const errorMsgEl = document.getElementById('ggb-error-msg');
+      const btnDownload = document.getElementById('btn-download');
+      const btnErrorDownload = document.getElementById('btn-error-download');
+      const btnReset = document.getElementById('btn-reset');
+      const btnClose = document.getElementById('btn-close');
+      const stageEl = document.querySelector('.ggb-stage');
+
+      titleEl.textContent = rawTitle;
+      document.title = rawTitle + ' · GeoGebra';
+      badgeEl.textContent = rawApp === '3d' ? '🧊 GeoGebra 3D' : '📐 GeoGebra 2D';
+
+      btnClose.addEventListener('click', () => {
+        if (window.opener) {
+          window.close();
+        } else {
+          history.back();
+        }
+      });
+
+      // Chỉ cho phép đường dẫn nội bộ hợp lệ tới file .ggb
+      const isValidPath = /^assets\/geogebra\/[a-zA-Z0-9_\/-]+\.ggb$/.test(rawFile);
+      if (!isValidPath) {
+        loadingEl.hidden = true;
+        errorMsgEl.textContent = 'Đường dẫn file .ggb không hợp lệ hoặc không được cung cấp.';
+        errorEl.hidden = false;
+        return;
+      }
+
+      btnDownload.href = rawFile;
+      btnDownload.hidden = false;
+      btnErrorDownload.href = rawFile;
+      btnErrorDownload.hidden = false;
+
+      if (typeof window.GGBApplet !== 'function') {
+        loadingEl.hidden = true;
+        errorEl.hidden = false;
+        return;
+      }
+
+      function arrayBufferToBase64(buffer) {
+        const bytes = new Uint8Array(buffer);
+        const chunkSize = 0x8000;
+        let binary = '';
+        for (let i = 0; i < bytes.length; i += chunkSize) {
+          binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunkSize));
+        }
+        return btoa(binary);
+      }
+
+      fetch(rawFile)
+        .then((res) => {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.arrayBuffer();
+        })
+        .then((buf) => {
+          const base64 = arrayBufferToBase64(buf);
+          const rect = stageEl.getBoundingClientRect();
+
+          const applet = new window.GGBApplet({
+            appName: rawApp,
+            width: Math.max(320, Math.floor(rect.width)),
+            height: Math.max(320, Math.floor(rect.height)),
+            showToolBar: true,
+            showAlgebraInput: true,
+            showMenuBar: false,
+            showResetIcon: true,
+            enableRightClick: true,
+            enableShiftDragZoom: true,
+            allowStyleBar: true,
+            language: 'vi',
+            ggbBase64: base64,
+            appletOnLoad: function (api) {
+              loadingEl.hidden = true;
+              btnReset.hidden = false;
+              btnReset.addEventListener('click', () => api.reset());
+              window.addEventListener('resize', () => {
+                const r = stageEl.getBoundingClientRect();
+                if (typeof api.setSize === 'function') {
+                  api.setSize(Math.max(320, Math.floor(r.width)), Math.max(320, Math.floor(r.height)));
+                }
+              });
+            }
+          }, true);
+
+          applet.inject('ggb-container');
+        })
+        .catch((err) => {
+          loadingEl.hidden = true;
+          errorMsgEl.textContent = 'Không tải được dữ liệu mô hình (' + err.message + '). Bạn vẫn có thể tải file .ggb bên dưới.';
+          errorEl.hidden = false;
+        });
+    })();
+  </script>
+</body>
+</html>

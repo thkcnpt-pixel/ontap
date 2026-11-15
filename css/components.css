@@ -638,6 +638,33 @@
   border-radius: var(--radius-sm);
 }
 
+.question-card__geogebra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.question-card__geogebra[hidden] {
+  display: none;
+}
+
+.geogebra-link {
+  border-color: rgba(122, 162, 247, 0.35);
+  background: var(--c-primary-soft);
+  color: var(--c-primary);
+  font-weight: var(--fw-medium);
+}
+
+.geogebra-link:hover {
+  background: rgba(122, 162, 247, 0.22);
+  border-color: var(--c-primary);
+}
+
+.geogebra-download {
+  color: var(--c-text-muted);
+}
+
 .question-card__options {
   display: flex;
   flex-direction: column;
