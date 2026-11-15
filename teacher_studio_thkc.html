@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Studio - Ngân hàng & Trộn đề | Dev by Thkc</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Giao diện chuẩn In ấn PDF */
+        @media print {
+            body { background: white !important; color: black !important; font-family: "Times New Roman", Times, serif !important; font-size: 12pt; }
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            .print-break-inside-avoid { break-inside: avoid; page-break-inside: avoid; }
+            @page { margin: 1.5cm; size: A4; }
+        }
+        .print-only { display: none; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { background: #475569; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+    <!-- ==================== GIAO DIỆN WEB (ẨN KHI IN) ==================== -->
+    <div class="no-print flex flex-col h-screen overflow-hidden">
+        
+        <!-- TOP BAR -->
+        <header class="bg-slate-900 border-b border-slate-800 px-4 py-3 flex flex-wrap items-center justify-between gap-3 shrink-0">
+            <div class="flex items-center gap-3">
+                <div class="bg-indigo-600 text-white font-bold px-3 py-1.5 rounded-lg text-sm tracking-wide shadow">
+                    TEACHER STUDIO
+                </div>
+                <span class="text-xs text-slate-400 font-medium border border-slate-700 px-2.5 py-1 rounded-full">
+                    Dev by Thkc
+                </span>
+                <span class="hidden md:inline-block text-xs text-emerald-400 bg-emerald-950/60 border border-emerald-800 px-2.5 py-1 rounded-full">
+                    ● Độc lập 100% với Web Học Sinh
+                </span>
+            </div>
+
+            <!-- Giỏ câu hỏi & Công cụ Xuất -->
+            <div class="flex items-center gap-2 flex-wrap">
+                <div class="bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-lg text-xs flex items-center gap-2">
+                    <span class="text-slate-400">Đã chọn:</span>
+                    <strong id="selectedCount" class="text-amber-400 text-sm">0</strong>
+                    <span class="text-slate-400">câu</span>
+                </div>
+                <button onclick="selectAllVisible()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-1.5 rounded-lg text-xs font-medium transition">
+                    Chọn tất cả
+                </button>
+                <button onclick="clearSelection()" class="bg-slate-800 hover:bg-rose-950 hover:text-rose-300 hover:border-rose-800 text-slate-300 border border-slate-700 px-3 py-1.5 rounded-lg text-xs font-medium transition">
+                    Bỏ chọn
+                </button>
+                <button onclick="openExportModal()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-1.5 rounded-lg text-xs font-semibold shadow-lg shadow-indigo-600/30 transition flex items-center gap-1.5">
+                    <span>🖨️ Xuất Đề PDF / Word</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- MAIN WORKSPACE -->
+        <div class="flex flex-1 overflow-hidden">
+            
+            <!-- SIDEBAR TRÁI: NGUỒN DỮ LIỆU & ĐỀ -->
+            <aside class="w-72 bg-slate-900 border-r border-slate-800 flex flex-col shrink-0 overflow-y-auto p-4 gap-4">
+                
+                <!-- Nạp JSON từ Web cũ hoặc File máy -->
+                <div class="bg-slate-800/60 border border-slate-700/80 rounded-xl p-3.5">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-2">1. Nguồn dữ liệu JSON</h3>
+                    <p class="text-[11px] text-slate-400 mb-2.5 leading-relaxed">
+                        Hút trực tiếp file JSON từ kho GitHub hiện tại hoặc tải file từ máy mà không làm ảnh hưởng web cũ.
+                    </p>
+                    <input id="jsonUrlInput" type="text" placeholder="Dán đường dẫn file .json..." 
+                        value="assets/data/vat-li/ngoai/de-so-1/de-so-1.json"
+                        class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 mb-2 focus:outline-none focus:border-indigo-500">
+                    <div class="flex gap-1.5">
+                        <button onclick="fetchFromUrl()" class="flex-1 bg-indigo-600/90 hover:bg-indigo-600 text-white text-xs font-medium py-1.5 rounded-lg transition">
+                            Nạp từ URL
+                        </button>
+                        <label class="flex-1 bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-medium py-1.5 rounded-lg transition text-center cursor-pointer">
+                            Chọn File .json
+                            <input type="file" accept=".json" onchange="loadLocalFile(event)" class="hidden">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Danh sách Chuyên đề / Đề mẫu -->
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5">2. Kho Đề Mẫu (Tích hợp sẵn)</h3>
+                    <div class="space-y-1.5">
+                        <button onclick="loadSampleExam('all')" class="w-full text-left px-3 py-2 rounded-lg text-xs font-medium bg-indigo-950/70 text-indigo-300 border border-indigo-800/80 flex justify-between items-center">
+                            <span>⚡ Vật Lí 12 - Đề Chuẩn Minh Họa</span>
+                            <span class="bg-indigo-900 text-indigo-200 px-1.5 py-0.5 rounded text-[10px]">Đầy đủ 3 phần</span>
+                        </button>
+                        <button onclick="loadSampleExam('ch1')" class="w-full text-left px-3 py-2 rounded-lg text-xs font-medium hover:bg-slate-800 text-slate-300 transition flex justify-between items-center">
+                            <span>🌡️ Chương 1: Vật lí Nhiệt</span>
+                            <span class="text-[10px] text-slate-500">Mẫu</span>
+                        </button>
+                        <button onclick="loadSampleExam('ch4')" class="w-full text-left px-3 py-2 rounded-lg text-xs font-medium hover:bg-slate-800 text-slate-300 transition flex justify-between items-center">
+                            <span>☢️ Chương 4: Vật lí Hạt nhân</span>
+                            <span class="text-[10px] text-slate-500">Mẫu</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Thống kê nhanh cấu trúc đang chọn -->
+                <div class="mt-auto bg-slate-950 border border-slate-800 rounded-xl p-3 space-y-2">
+                    <div class="text-xs font-semibold text-slate-300 border-b border-slate-800 pb-1.5">Cấu trúc Giỏ Đề hiện tại</div>
+                    <div class="flex justify-between text-xs text-slate-400">
+                        <span>Phần I (MCQ 4 lựa chọn):</span>
+                        <strong id="statPart1" class="text-emerald-400">0 câu</strong>
+                    </div>
+                    <div class="flex justify-between text-xs text-slate-400">
+                        <span>Phần II (Đúng / Sai - 4 ý):</span>
+                        <strong id="statPart2" class="text-sky-400">0 câu</strong>
+                    </div>
+                    <div class="flex justify-between text-xs text-slate-400">
+                        <span>Phần III (Trả lời ngắn):</span>
+                        <strong id="statPart3" class="text-purple-400">0 câu</strong>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- KHU VỰC CHÍNH: BỘ LỌC + LƯỚI 2 CỘT CÂU HỎI -->
+            <main class="flex-1 flex flex-col overflow-hidden bg-slate-950">
+                
+                <!-- Thanh Filter -->
+                <div class="bg-slate-900/60 border-b border-slate-800 px-5 py-3 flex flex-wrap items-center justify-between gap-3 shrink-0">
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <span class="text-xs text-slate-400 mr-1">Lọc phần thi:</span>
+                        <button onclick="setPartFilter('ALL')" id="btnFilter_ALL" class="filter-btn bg-indigo-600 text-white px-3 py-1 rounded-md text-xs font-medium">Tất cả</button>
+                        <button onclick="setPartFilter('1')" id="btnFilter_1" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-3 py-1 rounded-md text-xs font-medium">Phần I (Trắc nghiệm)</button>
+                        <button onclick="setPartFilter('2')" id="btnFilter_2" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-3 py-1 rounded-md text-xs font-medium">Phần II (Đúng/Sai)</button>
+                        <button onclick="setPartFilter('3')" id="btnFilter_3" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-3 py-1 rounded-md text-xs font-medium">Phần III (Trả lời ngắn)</button>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <label class="flex items-center gap-1.5 text-xs text-slate-300 cursor-pointer select-none bg-slate-800 px-3 py-1 rounded-md border border-slate-700">
+                            <input type="checkbox" id="toggleAllSolutions" onchange="renderQuestionGrid()" class="accent-indigo-500">
+                            <span>Hiện toàn bộ lời giải</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Lưới 2 Cột (Giống Noctorium) -->
+                <div id="questionGrid" class="flex-1 overflow-y-auto p-5 grid grid-cols-1 lg:grid-cols-2 gap-4 content-start">
+                    <!-- Các Card câu hỏi sẽ được render tự động tại đây -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL TÙY CHỈNH XUẤT PDF / WORD ==================== -->
+    <div id="exportModal" class="no-print fixed inset-0 bg-black/75 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div>
+                    <h2 class="text-base font-bold text-white">Tùy chỉnh Xuất Đề Thi (Chuẩn GDPT 2018)</h2>
+                    <p class="text-xs text-slate-400">Định dạng in ấn sắc nét - Dev by Thkc (Không chứa mã QR)</p>
+                </div>
+                <button onclick="closeExportModal()" class="text-slate-400 hover:text-white text-lg font-bold">✕</button>
+            </div>
+
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block text-slate-300 font-semibold mb-1">Tiêu đề Kỳ thi / Trường:</label>
+                    <input id="printHeaderTitle" type="text" value="SỞ GD&ĐT ĐỒNG THÁP - ĐỀ ÔN TẬP THPT QUỐC GIA" 
+                        class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-100">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-slate-300 font-semibold mb-1">Môn thi & Thời gian:</label>
+                        <input id="printSubTitle" type="text" value="Môn: VẬT LÍ 12 - Thời gian: 50 phút" 
+                            class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-100">
+                    </div>
+                    <div>
+                        <label class="block text-slate-300 font-semibold mb-1">Mã đề:</label>
+                        <input id="printExamCode" type="text" value="101" 
+                            class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-100">
+                    </div>
+                </div>
+
+                <!-- Chế độ Đáp án & Lời giải -->
+                <div class="bg-slate-950 border border-slate-800 rounded-xl p-3.5 space-y-2.5">
+                    <div class="font-semibold text-indigo-400">Tùy chọn hiển thị trên bản in:</div>
+                    <label class="flex items-center gap-2 text-slate-200 cursor-pointer">
+                        <input type="checkbox" id="optHighlightCorrect" class="accent-indigo-500">
+                        <span>Khoanh / Tô đậm trực tiếp đáp án đúng trên đề</span>
+                    </label>
+                    <label class="flex items-center gap-2 text-slate-200 cursor-pointer">
+                        <input type="checkbox" id="optIncludeAnswerTable" checked class="accent-indigo-500">
+                        <span>Kèm Bảng Đáp Án tổng hợp ở trang cuối</span>
+                    </label>
+                    <label class="flex items-center gap-2 text-slate-200 cursor-pointer">
+                        <input type="checkbox" id="optIncludeExplanation" class="accent-indigo-500">
+                        <span>Kèm Lời giải chi tiết ngay dưới từng câu hỏi</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-end gap-2.5 pt-3 border-t border-slate-800">
+                <button onclick="exportWordDoc()" class="bg-sky-600 hover:bg-sky-500 text-white px-4 py-2 rounded-lg text-xs font-semibold transition">
+                    📄 Tải file Word (.doc)
+                </button>
+                <button onclick="triggerPrintPDF()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 rounded-lg text-xs font-semibold shadow-lg shadow-indigo-600/30 transition">
+                    🖨️ Xem & Xuất PDF Ngay
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== VÙNG BẢN IN (CHỈ HIỆN KHI IN PDF / XUẤT WORD) ==================== -->
+    <div id="printArea" class="print-only text-black bg-white p-4"></div>
+
+    <!-- ==================== LOGIC XỬ LÝ DỮ LIỆU & CHUYỂN ĐỔI MÔ HÌNH ==================== -->
+    <script>
+        // Dữ liệu JSON mẫu tuân thủ 100% mô hình dữ liệu hiện tại của bạn:
+        // - Part 1 (mcq): options [{"text", "shuffle"}], answer: 0..3
+        // - Part 2 (truefalse): tách thành 4 object độc lập cau_01a, cau_01b, cau_01c, cau_01d (Teacher Studio sẽ tự gom lại thành 1 Card)
+        // - Part 3 (short): answer là mảng chuỗi ["..."]
+        const SAMPLE_RAW_JSON = [
+            {
+                "id": "cau_01",
+                "part": 1,
+                "type": "mcq",
+                "level": "NB",
+                "question": "Nội năng của một vật phụ thuộc vào những yếu tố nào sau đây?",
+                "options": [
+                    {"text": "Nhiệt độ và thể tích của vật.", "shuffle": true},
+                    {"text": "Khối lượng và vận tốc của vật.", "shuffle": true},
+                    {"text": "Độ cao và thể tích của vật.", "shuffle": true},
+                    {"text": "Nhiệt độ và độ cao của vật.", "shuffle": true}
+                ],
+                "answer": 0,
+                "explanation": "Nội năng của vật phụ thuộc vào nhiệt độ $T$ và thể tích $V$: $U = f(T, V)$.",
+                "image": ""
+            },
+            {
+                "id": "cau_02",
+                "part": 1,
+                "type": "mcq",
+                "level": "TH",
+                "question": "Một lượng khí nhận nhiệt lượng $Q = 150\text{ J}$ và thực hiện một công $A = 60\text{ J}$ đẩy pít-tông. Độ biến thiên nội năng $\Delta U$ của lượng khí là:",
+                "options": [
+                    {"text": "$210\text{ J}$", "shuffle": true},
+                    {"text": "$90\text{ J}$", "shuffle": true},
+                    {"text": "$-90\text{ J}$", "shuffle": true},
+                    {"text": "$0\text{ J}$", "shuffle": true}
+                ],
+                "answer": 1,
+                "explanation": "Áp dụng nguyên lí I Nhiệt động lực học: $$\Delta U = Q + A = 150 + (-60) = 90\text{ J}$$",
+                "image": ""
+            },
+            {
+                "id": "cau_03",
+                "part": 1,
+                "type": "mcq",
+                "level": "VD",
+                "question": "Cho hạt nhân nguyên tử Helium $_2^4\text{He}$. Số hạt neutron có trong một hạt nhân $_2^4\text{He}$ là:",
+                "options": [
+                    {"text": "$4$", "shuffle": true},
+                    {"text": "$2$", "shuffle": true},
+                    {"text": "$6$", "shuffle": true},
+                    {"text": "$0$", "shuffle": true}
+                ],
+                "answer": 1,
+                "explanation": "Số neutron được tính bằng: $N = A - Z = 4 - 2 = 2$.",
+                "image": ""
+            },
+            // PHẦN II: 4 object độc lập (cau_04a, b, c, d) như chuẩn JSON web học sinh
+            {
+                "id": "cau_04a",
+                "part": 2,
+                "type": "truefalse",
+                "level": "TH",
+                "stem": "Một khối khí lí tưởng thực hiện quá trình đẳng nhiệt ở nhiệt độ $T = 300\text{ K}$. Xét tính đúng/sai của các mệnh đề sau:",
+                "question": "a) Nội năng của khối khí không đổi trong suốt quá trình biến đổi.",
+                "answer": true,
+                "explanation": "Vì nội năng khí lí tưởng chỉ phụ thuộc vào nhiệt độ ($T = \text{const} \Rightarrow \Delta U = 0$)."
+            },
+            {
+                "id": "cau_04b",
+                "part": 2,
+                "type": "truefalse",
+                "level": "TH",
+                "question": "b) Khi thể tích giảm đi $2$ lần thì áp suất của khối khí cũng giảm đi $2$ lần.",
+                "answer": false,
+                "explanation": "Theo định luật Boyle ($pV = \text{const}$), thể tích giảm 2 lần thì áp suất phải tăng 2 lần."
+            },
+            {
+                "id": "cau_04c",
+                "part": 2,
+                "type": "truefalse",
+                "level": "VD",
+                "question": "c) Đường biểu diễn quá trình trong hệ tọa độ $(p, V)$ là một nhánh hyperbol.",
+                "answer": true,
+                "explanation": "Đường đẳng nhiệt trong hệ tọa độ $(p, V)$ có dạng đường cong hyperbol."
+            },
+            {
+                "id": "cau_04d",
+                "part": 2,
+                "type": "truefalse",
+                "level": "VDC",
+                "question": "d) Nếu khối khí nhận công $50\text{ J}$ thì nó tỏa ra môi trường nhiệt lượng đúng bằng $50\text{ J}$.",
+                "answer": true,
+                "explanation": "Do $\Delta U = A + Q = 0 \Rightarrow Q = -A = -50\text{ J}$ (khí tỏa nhiệt lượng $50\text{ J}$)."
+            },
+            // PHẦN III: Trả lời ngắn
+            {
+                "id": "cau_05",
+                "part": 3,
+                "type": "short",
+                "level": "VD",
+                "question": "Biết nhiệt dung riêng của nước là $4200\text{ J/(kg.K)}$. Nhiệt lượng cần cung cấp để đun nóng $2\text{ kg}$ nước tăng thêm $10^\circ\text{C}$ là bao nhiêu $\text{kJ}$?",
+                "answer": ["84"],
+                "explanation": "Ta có: $$Q = mc\Delta t = 2 \cdot 4200 \cdot 10 = 84000\text{ J} = 84\text{ kJ}$$",
+                "image": ""
+            },
+            {
+                "id": "cau_06",
+                "part": 3,
+                "type": "short",
+                "level": "VDC",
+                "question": "Một chất phóng xạ có chu kì bán rã $T = 3,8\text{ ngày}$. Sau thời gian $t = 7,6\text{ ngày}$ thì tỉ số phần trăm khối lượng chất phóng xạ còn lại so với ban đầu là bao nhiêu phần trăm?",
+                "answer": ["25"],
+                "explanation": "Tỉ số phần trăm còn lại: $$\frac{m}{m_0} = 2^{-\frac{t}{T}} = 2^{-\frac{7,6}{3,8}} = 2^{-2} = 0,25 = 25\%$$",
+                "image": ""
+            }
+        ];
+
+        let groupedQuestions = [];
+        let selectedIds = new Set();
+        let currentPartFilter = 'ALL';
+
+        // Hàm gom tự động 4 object Đúng/Sai (cau_04a, b, c, d) thành 1 Card hoàn chỉnh cho Giáo viên
+        function normalizeAndGroupQuestions(rawArray) {
+            const result = [];
+            const tfGroups = {};
+
+            rawArray.forEach(item => {
+                const isTF = item.type === 'truefalse' || item.part === 2;
+                if (isTF) {
+                    // Tách gốc id: cau_04a -> cau_04
+                    const baseId = (item.id || '').replace(/[a-dA-D]$/, '') || item.id;
+                    if (!tfGroups[baseId]) {
+                        tfGroups[baseId] = {
+                            id: baseId,
+                            part: 2,
+                            type: 'truefalse_grouped',
+                            level: item.level || 'TH',
+                            stem: item.stem || 'Xét tính đúng/sai của các mệnh đề sau:',
+                            image: item.image || '',
+                            subItems: []
+                        };
+                        result.push(tfGroups[baseId]);
+                    }
+                    if (item.stem && tfGroups[baseId].stem === 'Xét tính đúng/sai của các mệnh đề sau:') {
+                        tfGroups[baseId].stem = item.stem;
+                    }
+                    tfGroups[baseId].subItems.push({
+                        subId: item.id,
+                        text: item.question || item.text || '',
+                        answer: Boolean(item.answer),
+                        explanation: item.explanation || ''
+                    });
+                } else {
+                    result.push({
+                        id: item.id || ('q_' + Math.random().toString(36).substr(2, 5)),
+                        part: item.part || (item.type === 'short' ? 3 : 1),
+                        type: item.type || 'mcq',
+                        level: item.level || 'NB',
+                        question: item.question || item.text || '',
+                        options: item.options || [],
+                        answer: item.answer,
+                        explanation: item.explanation || '',
+                        image: item.image || ''
+                    });
+                }
+            });
+
+            return result;
+        }
+
+        function renderMath(element) {
+            if (window.renderMathInElement) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+
+        function updateCounters() {
+            document.getElementById('selectedCount').textContent = selectedIds.size;
+            let p1 = 0, p2 = 0, p3 = 0;
+            groupedQuestions.forEach(q => {
+                if (selectedIds.has(q.id)) {
+                    if (q.part === 1) p1++;
+                    else if (q.part === 2) p2++;
+                    else if (q.part === 3) p3++;
+                }
+            });
+            document.getElementById('statPart1').textContent = p1 + ' câu';
+            document.getElementById('statPart2').textContent = p2 + ' câu';
+            document.getElementById('statPart3').textContent = p3 + ' câu';
+        }
+
+        function toggleSelectQuestion(id) {
+            if (selectedIds.has(id)) selectedIds.delete(id);
+            else selectedIds.add(id);
+            updateCounters();
+            renderQuestionGrid();
+        }
+
+        function selectAllVisible() {
+            getFilteredQuestions().forEach(q => selectedIds.add(q.id));
+            updateCounters();
+            renderQuestionGrid();
+        }
+
+        function clearSelection() {
+            selectedIds.clear();
+            updateCounters();
+            renderQuestionGrid();
+        }
+
+        function setPartFilter(part) {
+            currentPartFilter = part;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.className = 'filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-3 py-1 rounded-md text-xs font-medium';
+            });
+            const activeBtn = document.getElementById('btnFilter_' + part);
+            if (activeBtn) {
+                activeBtn.className = 'filter-btn bg-indigo-600 text-white px-3 py-1 rounded-md text-xs font-medium';
+            }
+            renderQuestionGrid();
+        }
+
+        function getFilteredQuestions() {
+            if (currentPartFilter === 'ALL') return groupedQuestions;
+            return groupedQuestions.filter(q => String(q.part) === String(currentPartFilter));
+        }
+
+        function renderQuestionGrid() {
+            const container = document.getElementById('questionGrid');
+            const showSolAll = document.getElementById('toggleAllSolutions').checked;
+            const list = getFilteredQuestions();
+            container.innerHTML = '';
+
+            list.forEach((q, idx) => {
+                const isSelected = selectedIds.has(q.id);
+                const card = document.createElement('div');
+                card.className = `rounded-xl border p-4 flex flex-col justify-between transition ${
+                    isSelected 
+                    ? 'bg-indigo-950/30 border-indigo-500 shadow-lg shadow-indigo-500/10' 
+                    : 'bg-slate-900 border-slate-800 hover:border-slate-700'
+                }`;
+
+                const badgePart = q.part === 1 
+                    ? '<span class="bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded text-[10px] font-semibold">Phần I - Trắc nghiệm</span>'
+                    : q.part === 2 
+                    ? '<span class="bg-sky-950 text-sky-400 border border-sky-800 px-2 py-0.5 rounded text-[10px] font-semibold">Phần II - Đúng/Sai</span>'
+                    : '<span class="bg-purple-950 text-purple-400 border border-purple-800 px-2 py-0.5 rounded text-[10px] font-semibold">Phần III - Trả lời ngắn</span>';
+
+                let bodyHtml = '';
+                if (q.part === 1) {
+                    const letters = ['A', 'B', 'C', 'D'];
+                    const optsHtml = (q.options || []).map((opt, i) => {
+                        const isAns = Number(q.answer) === i;
+                        return `<div class="px-2.5 py-1.5 rounded-lg border text-xs flex items-start gap-2 ${
+                            isAns ? 'bg-emerald-950/50 border-emerald-700/80 text-emerald-200 font-medium' : 'bg-slate-950/60 border-slate-800 text-slate-300'
+                        }">
+                            <span class="font-bold">${letters[i]}.</span>
+                            <span>${opt.text || opt}</span>
+                        </div>`;
+                    }).join('');
+                    bodyHtml = `
+                        <div class="text-sm text-slate-100 leading-relaxed mb-3">${q.question}</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">${optsHtml}</div>
+                    `;
+                } else if (q.part === 2) {
+                    const rowsHtml = q.subItems.map(sub => `
+                        <div class="flex items-start justify-between gap-3 py-1.5 border-b border-slate-800/80 last:border-0 text-xs">
+                            <span class="text-slate-200">${sub.text}</span>
+                            <span class="shrink-0 font-bold px-2 py-0.5 rounded ${
+                                sub.answer ? 'bg-emerald-950 text-emerald-400 border border-emerald-800' : 'bg-rose-950 text-rose-400 border border-rose-800'
+                            }">${sub.answer ? 'ĐÚNG' : 'SAI'}</span>
+                        </div>
+                    `).join('');
+                    bodyHtml = `
+                        <div class="text-sm font-medium text-indigo-200 mb-2">${q.stem}</div>
+                        <div class="bg-slate-950/80 border border-slate-800 rounded-lg p-2.5">${rowsHtml}</div>
+                    `;
+                } else {
+                    const ansStr = Array.isArray(q.answer) ? q.answer.join(' ; ') : q.answer;
+                    bodyHtml = `
+                        <div class="text-sm text-slate-100 leading-relaxed mb-3">${q.question}</div>
+                        <div class="inline-flex items-center gap-2 bg-purple-950/50 border border-purple-800/80 px-3 py-1.5 rounded-lg text-xs">
+                            <span class="text-purple-300">Đáp số chuẩn:</span>
+                            <strong class="text-white font-mono text-sm">${ansStr}</strong>
+                        </div>
+                    `;
+                }
+
+                // Lời giải
+                let explanationHtml = '';
+                if (q.part === 2) {
+                    explanationHtml = q.subItems.map(s => s.explanation ? `<div>• ${s.explanation}</div>` : '').join('');
+                } else {
+                    explanationHtml = q.explanation || '';
+                }
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-2.5 pb-2 border-b border-slate-800/80">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-indigo-400">#${idx + 1} (${q.id})</span>
+                                ${badgePart}
+                                <span class="text-[10px] bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded">${q.level || 'TH'}</span>
+                            </div>
+                            <button onclick="toggleSelectQuestion('${q.id}')" class="px-2.5 py-1 rounded-lg text-xs font-semibold transition ${
+                                isSelected 
+                                ? 'bg-indigo-600 text-white' 
+                                : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700'
+                            }">
+                                ${isSelected ? '✓ Đã chọn' : '+ Chọn câu'}
+                            </button>
+                        </div>
+                        ${bodyHtml}
+                    </div>
+                    ${explanationHtml ? `
+                    <div class="mt-3 pt-2.5 border-t border-slate-800/80 text-xs text-slate-300 ${showSolAll ? '' : 'hidden'}" id="sol_${q.id}">
+                        <div class="font-semibold text-amber-400 mb-1">Lời giải chi tiết:</div>
+                        <div class="leading-relaxed text-slate-300 space-y-1">${explanationHtml}</div>
+                    </div>` : ''}
+                `;
+
+                container.appendChild(card);
+            });
+
+            renderMath(container);
+        }
+
+        // ==================== CHỨC NĂNG XUẤT BẢN IN PDF & WORD ====================
+        function openExportModal() {
+            if (selectedIds.size === 0) {
+                alert('Bạn chưa chọn câu hỏi nào! Hệ thống sẽ tự động chọn tất cả câu hỏi hiện có để bạn xem thử bản in.');
+                selectAllVisible();
+            }
+            document.getElementById('exportModal').classList.remove('hidden');
+            document.getElementById('exportModal').classList.add('flex');
+        }
+
+        function closeExportModal() {
+            document.getElementById('exportModal').classList.add('hidden');
+            document.getElementById('exportModal').classList.remove('flex');
+        }
+
+        function buildPrintableHTML() {
+            const headerTitle = document.getElementById('printHeaderTitle').value;
+            const subTitle = document.getElementById('printSubTitle').value;
+            const examCode = document.getElementById('printExamCode').value;
+            const highlightCorrect = document.getElementById('optHighlightCorrect').checked;
+            const includeTable = document.getElementById('optIncludeAnswerTable').checked;
+            const includeExp = document.getElementById('optIncludeExplanation').checked;
+
+            const selectedList = groupedQuestions.filter(q => selectedIds.has(q.id));
+            const p1List = selectedList.filter(q => q.part === 1);
+            const p2List = selectedList.filter(q => q.part === 2);
+            const p3List = selectedList.filter(q => q.part === 3);
+
+            let html = `
+                <div style="border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div style="text-align: left;">
+                        <div style="font-weight: bold; font-size: 13pt; text-transform: uppercase;">${headerTitle}</div>
+                        <div style="font-size: 12pt; margin-top: 4px;">${subTitle}</div>
+                        <div style="font-size: 10pt; font-style: italic; margin-top: 2px;">Họ và tên thí sinh: ........................................................... Số báo danh: ....................</div>
+                    </div>
+                    <div style="border: 1.5px solid #000; padding: 6px 14px; font-weight: bold; font-size: 12pt;">
+                        Mã đề: ${examCode}
+                    </div>
+                </div>
+            `;
+
+            // PHẦN I
+            if (p1List.length > 0) {
+                html += `<div style="font-weight: bold; font-size: 12pt; margin: 12px 0 6px 0;">PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn (${p1List.length} câu).</div>`;
+                const letters = ['A', 'B', 'C', 'D'];
+                p1List.forEach((q, i) => {
+                    const opts = (q.options || []).map((opt, idx) => {
+                        const isCorrect = Number(q.answer) === idx;
+                        const mark = (highlightCorrect && isCorrect) ? 'text-decoration: underline; font-weight: bold;' : '';
+                        return `<div style="width: 48%; display: inline-block; vertical-align: top; margin-bottom: 4px; ${mark}">
+                            <strong>${letters[idx]}.</strong> ${opt.text || opt}
+                        </div>`;
+                    }).join('');
+                    html += `
+                        <div class="print-break-inside-avoid" style="margin-bottom: 10px;">
+                            <div><strong>Câu ${i + 1}:</strong> ${q.question}</div>
+                            <div style="margin-top: 4px;">${opts}</div>
+                            ${(includeExp && q.explanation) ? `<div style="margin-top:4px; font-style:italic; font-size:11pt;"><strong>Lời giải:</strong> ${q.explanation}</div>` : ''}
+                        </div>
+                    `;
+                });
+            }
+
+            // PHẦN II
+            if (p2List.length > 0) {
+                html += `<div style="font-weight: bold; font-size: 12pt; margin: 14px 0 6px 0;">PHẦN II. Câu trắc nghiệm đúng sai (${p2List.length} câu). Thí sinh trả lời từ câu 1 đến câu ${p2List.length}. Trong mỗi ý a), b), c), d) ở mỗi câu, thí sinh chọn đúng hoặc sai.</div>`;
+                p2List.forEach((q, i) => {
+                    const rows = q.subItems.map(sub => `
+                        <tr>
+                            <td style="border: 1px solid #000; padding: 5px 8px;">${sub.text}</td>
+                            <td style="border: 1px solid #000; padding: 5px 8px; text-align: center; width: 90px; font-weight: bold;">
+                                ${highlightCorrect ? (sub.answer ? 'Đúng' : 'Sai') : 'Đ / S'}
+                            </td>
+                        </tr>
+                    `).join('');
+                    const exps = q.subItems.map(s => s.explanation ? `<div>- ${s.explanation}</div>` : '').join('');
+                    html += `
+                        <div class="print-break-inside-avoid" style="margin-bottom: 12px;">
+                            <div style="margin-bottom: 4px;"><strong>Câu ${i + 1}:</strong> ${q.stem}</div>
+                            <table style="width: 100%; border-collapse: collapse; margin-top: 4px;">
+                                <thead>
+                                    <tr style="background: #f3f4f6;">
+                                        <th style="border: 1px solid #000; padding: 5px 8px; text-align: left;">Mệnh đề</th>
+                                        <th style="border: 1px solid #000; padding: 5px 8px; text-align: center; width: 90px;">Đúng / Sai</th>
+                                    </tr>
+                                </thead>
+                                <tbody>${rows}</tbody>
+                            </table>
+                            ${(includeExp && exps) ? `<div style="margin-top:4px; font-style:italic; font-size:11pt;"><strong>Lời giải:</strong> ${exps}</div>` : ''}
+                        </div>
+                    `;
+                });
+            }
+
+            // PHẦN III
+            if (p3List.length > 0) {
+                html += `<div style="font-weight: bold; font-size: 12pt; margin: 14px 0 6px 0;">PHẦN III. Câu trắc nghiệm trả lời ngắn (${p3List.length} câu).</div>`;
+                p3List.forEach((q, i) => {
+                    const ansStr = Array.isArray(q.answer) ? q.answer.join(' ; ') : q.answer;
+                    const boxes = highlightCorrect 
+                        ? `<span style="border: 1.5px solid #000; padding: 2px 10px; font-weight: bold;">${ansStr}</span>`
+                        : `<span style="display:inline-block; border:1px solid #000; width:18px; height:22px; margin-right:2px;"></span>`.repeat(6);
+                    html += `
+                        <div class="print-break-inside-avoid" style="margin-bottom: 10px;">
+                            <div><strong>Câu ${i + 1}:</strong> ${q.question}</div>
+                            <div style="margin-top: 6px; display: flex; align-items: center; gap: 6px;">
+                                <strong>Đáp số:</strong> ${boxes}
+                            </div>
+                            ${(includeExp && q.explanation) ? `<div style="margin-top:4px; font-style:italic; font-size:11pt;"><strong>Lời giải:</strong> ${q.explanation}</div>` : ''}
+                        </div>
+                    `;
+                });
+            }
+
+            // BẢNG ĐÁP ÁN TỔNG HỢP CUỐI TRANG
+            if (includeTable) {
+                const letters = ['A', 'B', 'C', 'D'];
+                html += `<div style="page-break-before: always; margin-top: 24px; border-top: 2px solid #000; padding-top: 12px;">
+                    <div style="font-weight: bold; font-size: 13pt; text-align: center; margin-bottom: 10px;">BẢNG ĐÁP ÁN CHUẨN (MÃ ĐỀ ${examCode})</div>
+                `;
+                if (p1List.length > 0) {
+                    html += `<div style="font-weight: bold; margin-bottom: 4px;">Phần I: Trắc nghiệm nhiều lựa chọn</div>
+                    <table style="width:100%; border-collapse: collapse; margin-bottom: 12px; text-align:center;"><tr>`;
+                    p1List.forEach((q, i) => {
+                        html += `<td style="border:1px solid #000; padding:4px;"><strong>${i + 1}.</strong> ${letters[Number(q.answer)] || ''}</td>`;
+                    });
+                    html += `</tr></table>`;
+                }
+                if (p2List.length > 0) {
+                    html += `<div style="font-weight: bold; margin-bottom: 4px;">Phần II: Trắc nghiệm Đúng / Sai</div>
+                    <table style="width:100%; border-collapse: collapse; margin-bottom: 12px;"><tr>`;
+                    p2List.forEach((q, i) => {
+                        const subAns = q.subItems.map((s, idx) => `${['a','b','c','d'][idx]}) ${s.answer ? 'Đ' : 'S'}`).join(' | ');
+                        html += `<td style="border:1px solid #000; padding:6px;"><strong>Câu ${i + 1}:</strong> ${subAns}</td>`;
+                    });
+                    html += `</tr></table>`;
+                }
+                if (p3List.length > 0) {
+                    html += `<div style="font-weight: bold; margin-bottom: 4px;">Phần III: Trả lời ngắn</div>
+                    <table style="width:100%; border-collapse: collapse; margin-bottom: 12px; text-align:center;"><tr>`;
+                    p3List.forEach((q, i) => {
+                        const ansStr = Array.isArray(q.answer) ? q.answer.join(' ; ') : q.answer;
+                        html += `<td style="border:1px solid #000; padding:4px;"><strong>Câu ${i + 1}:</strong> ${ansStr}</td>`;
+                    });
+                    html += `</tr></table>`;
+                }
+                html += `</div>`;
+            }
+
+            // Chân trang bản quyền bắt buộc
+            html += `
+                <div style="margin-top: 20px; border-top: 1px solid #ccc; padding-top: 6px; text-align: center; font-size: 10pt; font-style: italic;">
+                    Hệ thống Ngân hàng & Trộn đề Vật Lí — Dev by Thkc (onluyendevbythkc.click)
+                </div>
+            `;
+
+            const printArea = document.getElementById('printArea');
+            printArea.innerHTML = html;
+            renderMath(printArea);
+            return printArea.innerHTML;
+        }
+
+        function triggerPrintPDF() {
+            buildPrintableHTML();
+            closeExportModal();
+            setTimeout(() => {
+                window.print();
+            }, 250);
+        }
+
+        function exportWordDoc() {
+            const content = buildPrintableHTML();
+            const examCode = document.getElementById('printExamCode').value || '101';
+            const fullHtml = `
+                <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+                <head><meta charset='utf-8'><title>De_Vat_Li_${examCode}_DevByThkc</title></head>
+                <body style="font-family: 'Times New Roman', serif; font-size: 12pt;">
+                    ${content}
+                </body></html>
+            `;
+            const blob = new Blob(['\ufeff', fullHtml], { type: 'application/msword' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `De_Thi_Vat_Li_Ma_${examCode}_DevByThkc.doc`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // ==================== NẠP FILE JSON TỪ REPO CŨ HOẶC TỪ MÁY ====================
+        async function fetchFromUrl() {
+            const url = document.getElementById('jsonUrlInput').value.trim();
+            if (!url) return alert('Vui lòng nhập đường dẫn file JSON!');
+            try {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error('Không tìm thấy file tại đường dẫn này');
+                const data = await res.json();
+                groupedQuestions = normalizeAndGroupQuestions(Array.isArray(data) ? data : (data.questions || []));
+                selectedIds.clear();
+                groupedQuestions.forEach(q => selectedIds.add(q.id));
+                updateCounters();
+                renderQuestionGrid();
+                alert('Đã nạp thành công ' + groupedQuestions.length + ' câu hỏi từ JSON!');
+            } catch (err) {
+                alert('Lưu ý: Khi chạy thử trực tiếp file rời, trình duyệt có thể chặn CORS nếu đường dẫn chưa đẩy lên cùng domain. Bạn có thể bấm nút "Chọn File .json" bên cạnh để nạp trực tiếp từ điện thoại! (' + err.message + ')');
+            }
+        }
+
+        function loadLocalFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    groupedQuestions = normalizeAndGroupQuestions(Array.isArray(data) ? data : (data.questions || []));
+                    selectedIds.clear();
+                    groupedQuestions.forEach(q => selectedIds.add(q.id));
+                    updateCounters();
+                    renderQuestionGrid();
+                } catch (err) {
+                    alert('File JSON không hợp lệ: ' + err.message);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function loadSampleExam(type) {
+            if (type === 'all') {
+                groupedQuestions = normalizeAndGroupQuestions(SAMPLE_RAW_JSON);
+            } else if (type === 'ch1') {
+                groupedQuestions = normalizeAndGroupQuestions(SAMPLE_RAW_JSON.filter(q => q.id !== 'cau_03' && q.id !== 'cau_06'));
+            } else {
+                groupedQuestions = normalizeAndGroupQuestions(SAMPLE_RAW_JSON.filter(q => q.id === 'cau_03' || q.id === 'cau_06'));
+            }
+            selectedIds.clear();
+            groupedQuestions.forEach(q => selectedIds.add(q.id));
+            updateCounters();
+            renderQuestionGrid();
+        }
+
+        // Khởi chạy mặc định với toàn bộ đề mẫu
+        window.addEventListener('DOMContentLoaded', () => {
+            loadSampleExam('all');
+        });
+    </script>
+</body>
+</html>
