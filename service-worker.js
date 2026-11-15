@@ -10,7 +10,7 @@
    Dev by Thkc
    ========================================================================== */
 
-const CACHE_VERSION = 'thkc-quiz-v2.6.1';
+const CACHE_VERSION = 'thkc-quiz-v2.6.2';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
@@ -204,17 +204,23 @@ async function cacheFirst(request) {
  * @returns {Promise<Response>}
  */
 async function handleNavigationRequest(request) {
+  const url = new URL(request.url);
+  const isSubPage =
+    url.pathname.endsWith('/geogebra.html') ||
+    url.pathname.endsWith('/teacher_studio.html');
+
   const cachedPage =
-    (await caches.match(request)) ||
-    (await caches.match('./index.html')) ||
-    (await caches.match('./'));
+    (await caches.match(request, { ignoreSearch: isSubPage })) ||
+    (isSubPage ? null : (await caches.match('./index.html')) || (await caches.match('./')));
 
   if (cachedPage) return cachedPage;
 
   try {
     const networkResponse = await fetch(request);
-    const cache = await caches.open(STATIC_CACHE);
-    cache.put('./index.html', networkResponse.clone());
+    if (!isSubPage && networkResponse.ok) {
+      const cache = await caches.open(STATIC_CACHE);
+      cache.put('./index.html', networkResponse.clone());
+    }
     return networkResponse;
   } catch {
     return new Response(
