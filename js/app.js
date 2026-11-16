@@ -79,6 +79,7 @@ import { initSmartHeader, resetSmartHeader } from './ui/smart-header.js';
 import { initSwipeGesture } from './ui/swipe.js';
 import { initAccordion } from './ui/accordion.js';
 import { initSettingsModal, syncStep3InlineSettingsUI } from './ui/settings-modal.js';
+import { initGeoGebraModal } from './ui/geogebra-modal.js';
 
 /** Đánh dấu người dùng vừa bấm nút Đăng nhập (để chỉ ghi Audit Log đúng thời điểm này) */
 let explicitLoginPending = false;
@@ -118,6 +119,7 @@ function bootstrap() {
   initOfflineSync();
   initSmartHeader();
   initAccordion();
+  initGeoGebraModal();
   initSettingsModal({ toast: showToast });
   initQuizController({ confirm: showConfirm, toast: showToast });
   initSwipeGesture(document.getElementById('quiz-container'), {

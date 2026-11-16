@@ -608,6 +608,9 @@
     </form>
   </dialog>
 
+  <!-- Hộp thoại xem GeoGebra toàn màn hình (giữ nguyên bài làm / đáp án) -->
+  <div id="geogebra-modal" class="ggb-modal" hidden role="dialog" aria-modal="true" aria-label="Mô hình tương tác GeoGebra"></div>
+
   <!-- Toast thông báo -->
   <div id="toast-container" class="toast-container" role="status" aria-live="polite" aria-atomic="false"></div>
 
@@ -659,7 +662,7 @@
           <div class="accordion__inner">
             <div class="accordion__text math-content"></div>
             <div class="question-card__geogebra" hidden>
-              <a class="btn btn--ghost btn--sm geogebra-link" href="#" target="_blank" rel="noopener noreferrer">
+              <a class="btn btn--ghost btn--sm geogebra-link" href="#" target="_blank" rel="opener">
                 📐 Xem &amp; tương tác trên GeoGebra
               </a>
               <a class="btn btn--ghost btn--sm geogebra-download" href="#" download>

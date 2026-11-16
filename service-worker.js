@@ -10,7 +10,7 @@
    Dev by Thkc
    ========================================================================== */
 
-const CACHE_VERSION = 'thkc-quiz-v2.8.0';
+const CACHE_VERSION = 'thkc-quiz-v2.8.1';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
@@ -52,6 +52,7 @@ const PRECACHE_ASSETS = [
   './js/ui/swipe.js',
   './js/ui/accordion.js',
   './js/ui/settings-modal.js',
+  './js/ui/geogebra-modal.js',
 
   // Data JSON (6 môn)
   './data/subjects.json',
