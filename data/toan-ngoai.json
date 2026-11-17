@@ -9082,7 +9082,7 @@
                     "9202",
                     "7134"
                   ],
-                  "explanation": "Elip có $a=4, b=2\\Rightarrow \\frac{x^2}{16}+\\frac{y^2}{4}=1$, diện tích $8\\pi\\ (\\text{m}^2)$. Với $MN=4\\Rightarrow x_N=2, y_N=\\sqrt{3}$, parabol có phương trình $y=\\frac{\\sqrt{3}}{4}x^2$. Diện tích phần tô đậm hai bên là $S_{\\text{hoa}}=4\\left(\\int_0^2\\frac{\\sqrt{3}}{4}x^2\\,dx+\\int_2^4 2\\sqrt{1-\\frac{x^2}{16}}\\,dx\\right)=\\frac{16\\pi}{3}-4\\sqrt{3}\\approx 14,75\\ (\\text{m}^2)$. Tổng số tiền là $S_{\\text{hoa}}\\cdot 600+(8\\pi-S_{\\text{hoa}})\\cdot 50\\approx 9202$ nghìn đồng (nếu trồng hoa ở miền trên/dưới là $7134$ nghìn đồng).",
+                  "explanation": "Elip có $a=4, b=2\\Rightarrow \\frac{x^2}{16}+\\frac{y^2}{4}=1$, diện tích $8\\pi\\ (\\text{m}^2)$. Với $MN=4\\Rightarrow x_N=2, y_N=\\sqrt{3}$, parabol có phương trình $y=\\frac{\\sqrt{3}}{4}x^2$. Diện tích phần tô đậm hai bên là $S_{\\text{hoa}}=4\\left(\\int_0^2\\frac{\\sqrt{3}}{4}x^2\\,dx+\\int_2^4 2\\sqrt{1-\\frac{x^2}{16}}\\,dx\\right)=\\frac{16\\pi}{3}-\\frac{4\\sqrt{3}}{3}\\approx 14,45\\ (\\text{m}^2)$. Tổng số tiền là $S_{\\text{hoa}}\\cdot 600+(8\\pi-S_{\\text{hoa}})\\cdot 50\\approx 9202$ nghìn đồng (nếu trồng hoa ở miền trên/dưới là $7134$ nghìn đồng).",
                   "geogebra": {
                     "file": "assets/geogebra/toan/ngoai/chuong-2/bai_06/cau_05.ggb",
                     "app": "3d",
@@ -10216,7 +10216,7 @@
                   "answer": [
                     "2,9"
                   ],
-                  "explanation": "Chọn trục $Ox$ trùng với đường thẳng $AC$, gốc tọa độ tại $B(0;0)$ (trung điểm $AC$), khi đó $A(-1;0), C(1;0)$. Đường tròn đường kính $AC$ là $(B; 1): x^2 + y^2 = 1$; đường tròn tâm $A(-1;0)$ bán kính $1$ là $(x+1)^2 + y^2 = 1 \\Leftrightarrow y^2 = 1 - (x+1)^2$, cắt đường tròn $(B; 1)$ tại $x = -\\frac{1}{2}$. Thể tích khối tròn xoay khi quay miền phẳng giới hạn bởi cung $(B; 1)$ và cung $(A; 1)$ trên $[-1; 0]$ quanh $AC$ là: $$V = \\pi \\int_{-1}^{-1/2} \\left[(1 - x^2) - (1 - (x+1)^2)\\right] dx + \\pi \\int_{-1/2}^0 (1 - x^2)\\,dx = \\frac{11\\pi}{12} \\approx 2,9\\text{ (cm}^3\\text{)}$$",
+                  "explanation": "Chọn trục $Ox$ trùng với đường thẳng $AC$, gốc tọa độ tại $B(0;0)$ (trung điểm $AC$), khi đó $A(-1;0), C(1;0)$. Đường tròn đường kính $AC$ là $(B; 1): x^2 + y^2 = 1$; đường tròn tâm $A(-1;0)$ bán kính $1$ là $(x+1)^2 + y^2 = 1 \\Leftrightarrow y^2 = 1 - (x+1)^2$, cắt đường tròn $(B; 1)$ tại $x = -\\frac{1}{2}$. Thể tích khối tròn xoay khi quay miền phẳng giới hạn bởi cung $(B; 1)$ và cung $(A; 1)$ trên $[-1; 0]$ quanh $AC$ là: $$V = \\pi \\int_{-1/2}^0 \\left[(1 - x^2) - (1 - (x+1)^2)\\right] dx + \\pi \\int_0^1 (1 - x^2)\\,dx = \\frac{11\\pi}{12} \\approx 2,9\\text{ (cm}^3\\text{)}$$",
                   "geogebra": {
                     "file": "assets/geogebra/toan/ngoai/chuong-2/bai_08/cau_08.ggb",
                     "app": "3d",
@@ -10965,9 +10965,9 @@
                   "text": "Một vật thể trang trí có đáy là một hình elip với độ dài trục lớn $MN = 20\\text{ cm}$ và độ dài trục bé $PQ = 12\\text{ cm}$. Biết rằng khi cắt vật thể bởi mặt phẳng vuông góc với trục lớn $MN$ thì thiết diện thu được luôn là một nửa hình lục giác đều nhận dây cung của elip đáy làm đáy lớn (như hình vẽ). Tính thể tích của vật thể trang trí đó theo đơn vị $\\text{cm}^3$ (kết quả làm tròn đến hàng đơn vị).",
                   "image": "assets/images/toan/ngoai/tong-hop/chuong-2/bai_09/cau_18.png",
                   "answer": [
-                    "1247"
+                    "624"
                   ],
-                  "explanation": "Chọn trục $Ox$ trùng với trục lớn $MN$ ($a = 10\\text{ cm}$), trục $Oy$ trùng với trục bé $PQ$ ($b = 6\\text{ cm}$). Phương trình elip đáy là $\\frac{x^2}{100} + \\frac{y^2}{36} = 1 \\Rightarrow y^2 = 36\\left(1 - \\frac{x^2}{100}\\right)$. Tại hoành độ $x \\in [-10; 10]$, dây cung vuông góc với $Ox$ có độ dài $2|y|$; nửa lục giác đều nhận dây cung này làm đường kính ngoại tiếp có độ dài cạnh bằng $|y|$ và gồm $3$ tam giác đều cạnh $|y|$, nên diện tích thiết diện là: $$S(x) = 3 \\cdot \\frac{\\sqrt{3}}{4} y^2 = \\frac{3\\sqrt{3}}{4} \\cdot 36\\left(1 - \\frac{x^2}{100}\\right) = 27\\sqrt{3}\\left(1 - \\frac{x^2}{100}\\right)$$ Thể tích vật thể là: $$V = \\int_{-10}^{10} 27\\sqrt{3}\\left(1 - \\frac{x^2}{100}\\right) dx = 27\\sqrt{3} \\cdot \\frac{40}{3} = 360\\sqrt{3}\\text{ (hoặc nếu cạnh bằng } 2y\\text{ thì } 720\\sqrt{3} \\approx 1247\\text{ cm}^3\\text{)}$$",
+                  "explanation": "Chọn trục $Ox$ trùng với trục lớn $MN$ ($a = 10\\text{ cm}$), trục $Oy$ trùng với trục bé $PQ$ ($b = 6\\text{ cm}$). Phương trình elip đáy là $\\frac{x^2}{100} + \\frac{y^2}{36} = 1 \\Rightarrow y^2 = 36\\left(1 - \\frac{x^2}{100}\\right)$. Tại hoành độ $x \\in [-10; 10]$, dây cung vuông góc với $Ox$ có độ dài $2|y|$; nửa lục giác đều nhận dây cung này làm đường kính ngoại tiếp có độ dài cạnh bằng $|y|$ và gồm $3$ tam giác đều cạnh $|y|$, nên diện tích thiết diện là: $$S(x) = 3 \\cdot \\frac{\\sqrt{3}}{4} y^2 = \\frac{3\\sqrt{3}}{4} \\cdot 36\\left(1 - \\frac{x^2}{100}\\right) = 27\\sqrt{3}\\left(1 - \\frac{x^2}{100}\\right)$$ Thể tích vật thể là: $$V = \\int_{-10}^{10} 27\\sqrt{3}\\left(1 - \\frac{x^2}{100}\\right) dx = 27\\sqrt{3} \\cdot \\frac{40}{3} = 360\\sqrt{3} \\approx 624\\text{ cm}^3$$",
                   "geogebra": {
                     "file": "assets/geogebra/toan/ngoai/chuong-2/bai_09/cau_18.ggb",
                     "app": "3d",
