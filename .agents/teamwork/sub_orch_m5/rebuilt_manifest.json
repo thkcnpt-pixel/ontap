@@ -1,0 +1,35 @@
+{
+  "rebuilt": [
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_10/cau_26.ggb",
+      "reason": "Replaced parabolic placeholder 0.5*u^2 with cubic 0.25*u^3 - u + 2 to match cau_26.png (f(0)=2, local max at x=-2/sqrt(3)<0, local min at x=2/sqrt(3) in (1,2), f(2)=2, f'(2)=2), added tangent 2*u-2, point A(2,2) scaled by sx=1.5, and dashed projection segments."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_10/cau_28.ggb",
+      "reason": "Replaced parabolic placeholder 0.5*u^2 + u - 1 with W-shaped quartic f(u)=(5/12)*u^4 - (11/18)*u^3 - (13/12)*u^2 + (4/3)*u + 26/9 (derivative (5/3)*(u+1)*(u-0.5)*(u-1.6), shifted so f(2)=3) to match cau_28.png (f(-1)=1.5 local min, local max at x=0.5, local min at x=1.6, f'(2)=3), with tangent 3*u-3, points M(-1,1.5) and T(2,3) scaled by sx=1.5, and dashed projection segments."
+    }
+  ],
+  "untouched_count": 51,
+  "json_patches": [
+    {
+      "lesson": "bai_09",
+      "question": "cau_18",
+      "field": "answer",
+      "old": [
+        "1247"
+      ],
+      "new": [
+        "624"
+      ],
+      "reason": "Problem states the half-regular-hexagon cross-section has the ellipse chord 2y as its longest base (đáy lớn), so hexagon side length is y, S(x) = 3*(sqrt(3)/4)*y^2 = 27*sqrt(3)*(1 - x^2/100), and V = 360*sqrt(3) ≈ 623.54 ≈ 624 cm^3 (not 720*sqrt(3) ≈ 1247)."
+    },
+    {
+      "lesson": "bai_09",
+      "question": "cau_18",
+      "field": "explanation",
+      "old": "Chọn trục $Ox$ trùng với trục lớn $MN$ ($a = 10\\text{ cm}$), trục $Oy$ trùng với trục bé $PQ$ ($b = 6\\text{ cm}$). Phương trình elip đáy là $\\frac{x^2}{100} + \\frac{y^2}{36} = 1 \\Rightarrow y^2 = 36\\left(1 - \\frac{x^2}{100}\\right)$. Tại hoành độ $x \\in [-10; 10]$, dây cung vuông góc với $Ox$ có độ dài $2|y|$; nửa lục giác đều nhận dây cung này làm đường kính ngoại tiếp có độ dài cạnh bằng $|y|$ và gồm $3$ tam giác đều cạnh $|y|$, nên diện tích thiết diện là: $$S(x) = 3 \\cdot \\frac{\\sqrt{3}}{4} y^2 = \\frac{3\\sqrt{3}}{4} \\cdot 36\\left(1 - \\frac{x^2}{100}\\right) = 27\\sqrt{3}\\left(1 - \\frac{x^2}{100}\\right)$$ Thể tích vật thể là: $$V = \\int_{-10}^{10} 27\\sqrt{3}\\left(1 - \\frac{x^2}{100}\\right) dx = 27\\sqrt{3} \\cdot \\frac{40}{3} = 360\\sqrt{3}\\text{ (hoặc nếu cạnh bằng } 2y\\text{ thì } 720\\sqrt{3} \\approx 1247\\text{ cm}^3\\text{)}$$",
+      "new": "Chọn trục $Ox$ trùng với trục lớn $MN$ ($a = 10\\text{ cm}$), trục $Oy$ trùng với trục bé $PQ$ ($b = 6\\text{ cm}$). Phương trình elip đáy là $\\frac{x^2}{100} + \\frac{y^2}{36} = 1 \\Rightarrow y^2 = 36\\left(1 - \\frac{x^2}{100}\\right)$. Tại hoành độ $x \\in [-10; 10]$, dây cung vuông góc với $Ox$ có độ dài $2|y|$; nửa lục giác đều nhận dây cung này làm đường kính ngoại tiếp có độ dài cạnh bằng $|y|$ và gồm $3$ tam giác đều cạnh $|y|$, nên diện tích thiết diện là: $$S(x) = 3 \\cdot \\frac{\\sqrt{3}}{4} y^2 = \\frac{3\\sqrt{3}}{4} \\cdot 36\\left(1 - \\frac{x^2}{100}\\right) = 27\\sqrt{3}\\left(1 - \\frac{x^2}{100}\\right)$$ Thể tích vật thể là: $$V = \\int_{-10}^{10} 27\\sqrt{3}\\left(1 - \\frac{x^2}{100}\\right) dx = 27\\sqrt{3} \\cdot \\frac{40}{3} = 360\\sqrt{3} \\approx 624\\text{ cm}^3$$",
+      "reason": "Remove erroneous parenthetical 720*sqrt(3) ≈ 1247 cm^3 and round 360*sqrt(3) ≈ 624 cm^3 to match the corrected answer."
+    }
+  ]
+}

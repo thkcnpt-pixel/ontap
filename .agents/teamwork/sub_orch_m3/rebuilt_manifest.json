@@ -1,0 +1,134 @@
+{
+  "milestone": "M3",
+  "scope": ["bai_05", "bai_06"],
+  "total_questions": 62,
+  "untouched_count": 35,
+  "rebuilt": [
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_05/cau_01.ggb",
+      "reason": "Math/geometry rebuild: replaced upward parabola [0, (1/9)u^2+4] with downward parabola y = 8 - (2/9)u^2 and lower V-shape y = 4 - (2/3)|u| on [-6, 6] + key points matching cau_01.png."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_06/cau_07.ggb",
+      "reason": "Math/geometry rebuild + runtime fix: added missing circular caps on [-2*sqrt(2), -2] and [2, 2*sqrt(2)] for full R=2*sqrt(2) disk, and converted max( -> Max(."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_06/cau_16.ggb",
+      "reason": "Math/geometry rebuild: replaced horizontal [-4,4]x[-2,2] / y=±x^2/8 with tall rectangle [-2,2]x[-4,4] (AB=4 dm, BC=8 dm) and parabolas y=±x^2 on [-2,2] matching cau_16.png and JSON."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_06/cau_22.ggb",
+      "reason": "Math/geometry rebuild + runtime fix: added missing top/bottom elliptical caps on [3*sqrt(3)/2, 3] and [-3, -3*sqrt(3)/2] matching cau_22.png, and converted max( -> Max(."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_05/cau_02.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_05/cau_08.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_05/cau_12.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_05/cau_13.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_05/cau_14.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_05/cau_18.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_05/cau_19.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_05/cau_20.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_05/cau_21.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_05/cau_22.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_05/cau_23.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_05/cau_24.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_05/cau_28.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_06/cau_01.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_06/cau_05.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_06/cau_08.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_06/cau_17.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_06/cau_20.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_06/cau_21.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_06/cau_23.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_06/cau_24.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_06/cau_29.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    },
+    {
+      "file": "assets/geogebra/toan/ngoai/chuong-2/bai_06/cau_30.ggb",
+      "reason": "GeoGebra Web3D runtime fix: converted lowercase max(/min( to Max(/Min( to prevent startup TypeError in web3d-0.js."
+    }
+  ],
+  "json_patches": [
+    {
+      "lesson": "bai_05",
+      "question": "cau_01",
+      "field": "explanation / geogebra.title / answer",
+      "old": "Upward parabola y = (1/9)x^2 + 4 through (±6, 8) with answer [\"64\", \"32\"]",
+      "new": "Review in M6: cau_01.png and rebuilt cau_01.ggb depict downward parabola y = 8 - (2/9)x^2 and lower V-shape y = 4 - (2/3)|x| (area = 40, or under parabola = 64).",
+      "reason": "Textbook PNG (cau_01.png) and JSON explanation text have opposing parabola orientations."
+    },
+    {
+      "lesson": "bai_06",
+      "question": "cau_05",
+      "field": "explanation",
+      "old": "=\\frac{16\\pi}{3}-4\\sqrt{3}\\approx 14,75",
+      "new": "=\\frac{16\\pi}{3}-\\frac{4\\sqrt{3}}{3}\\approx 14,45",
+      "reason": "Optional minor typo in explanation text: missing /3 on 4*sqrt(3); numeric answers (9202, 7134) already use the exact value 14.45."
+    }
+  ]
+}
