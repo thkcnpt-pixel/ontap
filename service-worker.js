@@ -10,7 +10,7 @@
    Dev by Thkc
    ========================================================================== */
 
-const CACHE_VERSION = 'thkc-quiz-v2.8.4';
+const CACHE_VERSION = 'thkc-quiz-v2.8.5';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
@@ -169,9 +169,40 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Toàn bộ tài nguyên tĩnh (CSS, JS, JSON, Ảnh, Font KaTeX): Cache-First
+  // Các file dữ liệu JSON (data/*.json): Network-First kèm cập nhật cache để luôn hiển thị môn/đề mới ngay lập tức
+  if (isSameOrigin && url.pathname.includes('/data/') && url.pathname.endsWith('.json')) {
+    event.respondWith(networkFirstData(request));
+    return;
+  }
+
+  // Toàn bộ tài nguyên tĩnh (CSS, JS, Ảnh, Font KaTeX): Cache-First
   event.respondWith(cacheFirst(request));
 });
+
+/**
+ * Chiến lược Network-First cho dữ liệu JSON (data/*.json):
+ * Ưu tiên lấy dữ liệu mới nhất từ server và lưu đè vào cache; nếu Offline thì lấy từ cache.
+ * @param {Request} request
+ * @returns {Promise<Response>}
+ */
+async function networkFirstData(request) {
+  try {
+    const freshReq = new Request(request.url, { cache: 'no-cache' });
+    const response = await fetch(freshReq);
+    if (response && response.ok) {
+      const cache = await caches.open(STATIC_CACHE);
+      cache.put(request, response.clone());
+      return response;
+    }
+  } catch {
+    // Offline -> fallback xuống cache bên dưới
+  }
+  const cached =
+    (await caches.match(request, { ignoreSearch: false })) ||
+    (await caches.match(request, { ignoreSearch: true }));
+  if (cached) return cached;
+  return fetch(request);
+}
 
 /**
  * Chiến lược Cache-First chuẩn:

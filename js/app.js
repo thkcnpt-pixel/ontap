@@ -150,9 +150,20 @@ function bootstrap() {
 
 function registerServiceWorker() {
   if (!('serviceWorker' in navigator)) return;
+
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (refreshing) return;
+    refreshing = true;
+    window.location.reload();
+  });
+
   window.addEventListener('load', () => {
     navigator.serviceWorker
-      .register('./service-worker.js')
+      .register('./service-worker.js', { updateViaCache: 'none' })
+      .then((reg) => {
+        reg.update().catch(() => {});
+      })
       .catch((err) => console.warn('[pwa] Không đăng ký được Service Worker:', err));
   });
 }
