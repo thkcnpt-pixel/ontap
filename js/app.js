@@ -64,6 +64,7 @@ import {
   DEFAULT_TOAN_NGOAI_CATEGORIES,
   DEFAULT_TINHOC_NGOAI_CATEGORIES,
   DEFAULT_VATLY_NGOAI_CATEGORIES,
+  DEFAULT_TIENGANH_TRUONG_CATEGORIES,
 } from './services/data.service.js';
 
 import {
@@ -313,9 +314,12 @@ function bindHomeWizardEvents() {
     goToWizardStep(1);
   });
 
-  // Nút Quay lại ở Màn hình 2b (Toán > Đề ngoài) -> lùi về Màn hình 2 (Chọn nguồn đề)
+  // Nút Quay lại ở Màn hình 2b -> lùi về Màn hình 2 (nếu có nhiều nguồn) hoặc Màn hình 1 (nếu chỉ có 1 nguồn)
   document.getElementById('btn-back-step-2b')?.addEventListener('click', () => {
-    goToWizardStep(2);
+    const { subjectId } = getState('selection');
+    const subj = getSubjectById(subjectId);
+    const hasMultipleSources = subj && Array.isArray(subj.sources) && subj.sources.length > 1;
+    goToWizardStep(hasMultipleSources ? 2 : 1);
   });
 
   // Nút Quay lại ở Màn hình 3:
@@ -520,8 +524,8 @@ function renderSubjectCards(subjects) {
       metaEl.textContent = subj.sources.length > 1 ? 'Đề trường · Đề ngoài' : 'Chỉ có Đề trường';
     }
 
-    // Với các môn chỉ có 1 đề duy nhất (Hóa, Sinh, GDQP -> Đề trường), hiển thị ngay trạng thái Đã làm / Chưa làm trên thẻ môn
-    if (subj.sources.length === 1) {
+    // Với các môn chỉ có 1 đề phẳng duy nhất (Hóa, Sinh, GDQP -> Đề trường), hiển thị ngay trạng thái Đã làm / Chưa làm trên thẻ môn
+    if (subj.sources.length === 1 && !requiresCategoryStep(subj.id, SOURCES.TRUONG)) {
       const status = getAttemptStatus({ subjectId: subj.id, source: SOURCES.TRUONG });
       const statusBadge = document.createElement('span');
       applyStatusBadge(statusBadge, status);
@@ -541,6 +545,7 @@ function renderSubjectCards(subjects) {
 /**
  * Xử lý khi học sinh bấm chọn 1 môn ở Màn hình 1:
  * - Ngoại lệ 1 (Sinh, Hóa, GDQP): chỉ có "Đề trường" -> auto-skip Màn 2, nhảy thẳng tới Màn 3.
+ * - Tiếng Anh: chỉ có "Đề trường" nhưng có nhiều bài/đề con -> auto-skip Màn 2, chuyển sang Màn 2b.
  * - Toán, Lý, Tin: có "Đề trường" và "Đề ngoài" -> chuyển sang Màn 2.
  * @param {{id: string, name: string, icon: string, sources: string[]}} subj
  */
@@ -572,7 +577,11 @@ function handleSubjectPick(subj) {
       lessonId: null,
       lessonName: null,
     });
-    goToWizardStep(3);
+    if (requiresCategoryStep(subj.id, SOURCES.TRUONG)) {
+      goToWizardStep('2b');
+    } else {
+      goToWizardStep(3);
+    }
   }
 }
 
@@ -687,20 +696,32 @@ async function populateStep2Sources(subject) {
  * @param {{id: string, name: string, icon: string, sources: string[]}} subject
  */
 async function populateStep2bCategories(subject) {
+  const source = getState('selection').source || SOURCES.NGOAI;
   const badgeEl = document.getElementById('step2b-subject-badge');
   if (badgeEl) badgeEl.textContent = `${subject.icon} ${subject.name}`;
+
+  const srcBadgeEl = document.getElementById('step2b-source-badge');
+  if (srcBadgeEl) srcBadgeEl.textContent = SOURCE_LABELS[source] || 'Đề ngoài';
+
+  const backBtn = document.getElementById('btn-back-step-2b');
+  if (backBtn) {
+    const hasMultipleSources = Array.isArray(subject.sources) && subject.sources.length > 1;
+    backBtn.textContent = hasMultipleSources ? '← Quay lại chọn nguồn đề' : '← Quay lại chọn môn';
+  }
 
   const fallbackCats = subject.id === 'tinhoc'
     ? DEFAULT_TINHOC_NGOAI_CATEGORIES
     : subject.id === 'vatly'
       ? DEFAULT_VATLY_NGOAI_CATEGORIES
-      : DEFAULT_TOAN_NGOAI_CATEGORIES;
+      : subject.id === 'tienganh'
+        ? DEFAULT_TIENGANH_TRUONG_CATEGORIES
+        : DEFAULT_TOAN_NGOAI_CATEGORIES;
 
   // 1) Hiển thị ngay lập tức bộ khung mặc định để UI không bao giờ bị trống/ẩn
   renderCategoryAccordionList(fallbackCats);
 
   // 2) Tải dữ liệu lồng nhau từ JSON và cập nhật số lượng câu của từng bài/trường
-  const categories = await loadNestedCategories(subject.id, SOURCES.NGOAI);
+  const categories = await loadNestedCategories(subject.id, source);
   if (categories && categories.length > 0) {
     renderCategoryAccordionList(categories);
   }
@@ -734,9 +755,10 @@ function createLessonButton(cat, les, ch = null) {
 
   // Nhãn trạng thái làm bài (Chưa làm / Đã làm · Xđ với màu đỏ <5, xanh dương 5-8, xanh lá 8-10)
   const currentSubjectId = getState('selection').subjectId || (cat.id === 'de_truong_thpt' ? 'tinhoc' : 'toan');
+  const currentSource = getState('selection').source || SOURCES.NGOAI;
   const status = getAttemptStatus({
     subjectId: currentSubjectId,
-    source: SOURCES.NGOAI,
+    source: currentSource,
     categoryId: cat.id,
     chapterId: ch?.id || null,
     lessonId: les.id,

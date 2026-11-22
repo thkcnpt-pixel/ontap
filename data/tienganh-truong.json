@@ -1,0 +1,1289 @@
+{
+  "subject": "tienganh",
+  "source": "truong",
+  "categories": [
+    {
+      "id": "de_tienganh_truong",
+      "name": "Đề kiểm tra Tiếng Anh",
+      "icon": "🇬🇧",
+      "description": "Các bài kiểm tra và đề ôn tập Tiếng Anh",
+      "lessons": [
+        {
+          "id": "test-15p-23-11",
+          "name": "Test 15p (23/11)",
+          "questions": [
+            {
+              "id": "cau_01",
+              "part": 1,
+              "type": "mcq",
+              "question": "The city's _____ needs upgrading to meet the demands from its citizens.",
+              "image": null,
+              "options": [
+                {
+                  "text": "leisure",
+                  "shuffle": true
+                },
+                {
+                  "text": "convenience",
+                  "shuffle": true
+                },
+                {
+                  "text": "infrastructure",
+                  "shuffle": true
+                },
+                {
+                  "text": "unemployment",
+                  "shuffle": true
+                }
+              ],
+              "answer": 2,
+              "explanation": "Xét nghĩa các danh từ:\n- leisure (n): thời gian rảnh rỗi\n- convenience (n): sự tiện lợi\n- infrastructure (n): cơ sở hạ tầng\n- unemployment (n): nạn thất nghiệp\nDịch nghĩa: Cơ sở hạ tầng của thành phố cần được nâng cấp để đáp ứng nhu cầu của người dân. Chọn C."
+            },
+            {
+              "id": "cau_02",
+              "part": 1,
+              "type": "mcq",
+              "question": "Youth crime in the inner city has increased _____ in recent months, requiring tightened security.",
+              "image": null,
+              "options": [
+                {
+                  "text": "reliably",
+                  "shuffle": true
+                },
+                {
+                  "text": "affordably",
+                  "shuffle": true
+                },
+                {
+                  "text": "conveniently",
+                  "shuffle": true
+                },
+                {
+                  "text": "rapidly",
+                  "shuffle": true
+                }
+              ],
+              "answer": 3,
+              "explanation": "Cần một trạng từ bổ nghĩa cho động từ \"increased\" (tăng lên):\n- reliably (adv): một cách đáng tin cậy\n- affordably (adv): với giá phải chăng\n- conveniently (adv): một cách thuận tiện\n- rapidly (adv): một cách nhanh chóng\nDịch nghĩa: Tội phạm thanh thiếu niên ở khu vực nội thành đã tăng nhanh chóng trong những tháng gần đây, đòi hỏi phải thắt chặt an ninh. Chọn D."
+            },
+            {
+              "id": "cau_03",
+              "part": 1,
+              "type": "mcq",
+              "question": "Air pollution and traffic congestion are two major _____ among city dwellers.",
+              "image": null,
+              "options": [
+                {
+                  "text": "concerns",
+                  "shuffle": true
+                },
+                {
+                  "text": "residents",
+                  "shuffle": true
+                },
+                {
+                  "text": "unemployment",
+                  "shuffle": true
+                },
+                {
+                  "text": "infrastructure",
+                  "shuffle": true
+                }
+              ],
+              "answer": 0,
+              "explanation": "Sau \"two major\" cần danh từ số nhiều:\n- concerns (n): những mối lo ngại\n- residents (n): cư dân\n- unemployment (n): sự thất nghiệp (không đếm được)\n- infrastructure (n): cơ sở hạ tầng (không đếm được)\nDịch nghĩa: Ô nhiễm không khí và ùn tắc giao thông là hai mối lo ngại lớn của cư dân thành phố. Chọn A."
+            },
+            {
+              "id": "cau_04",
+              "part": 1,
+              "type": "mcq",
+              "question": "The urban _____ can threaten the unique charm of the countryside.",
+              "image": null,
+              "options": [
+                {
+                  "text": "unemployment",
+                  "shuffle": true
+                },
+                {
+                  "text": "housing",
+                  "shuffle": true
+                },
+                {
+                  "text": "leisure",
+                  "shuffle": true
+                },
+                {
+                  "text": "sprawl",
+                  "shuffle": true
+                }
+              ],
+              "answer": 3,
+              "explanation": "Cụm danh từ cố định: \"urban sprawl\" (sự mở rộng đô thị tràn lan / sự bành trướng đô thị).\nDịch nghĩa: Sự mở rộng đô thị tràn lan có thể đe dọa nét quyến rũ độc đáo của vùng nông thôn. Chọn D."
+            },
+            {
+              "id": "cau_05",
+              "part": 1,
+              "type": "mcq",
+              "question": "Traffic in the _____ is a nightmare for commuters.",
+              "image": null,
+              "options": [
+                {
+                  "text": "resident",
+                  "shuffle": true
+                },
+                {
+                  "text": "rush hour",
+                  "shuffle": true
+                },
+                {
+                  "text": "urbanisation",
+                  "shuffle": true
+                },
+                {
+                  "text": "concern",
+                  "shuffle": true
+                }
+              ],
+              "answer": 1,
+              "explanation": "Cụm danh từ: \"in the rush hour\" (vào giờ cao điểm).\nDịch nghĩa: Giao thông vào giờ cao điểm là một cơn ác mộng đối với người đi làm hằng ngày. Chọn B."
+            },
+            {
+              "id": "cau_06",
+              "part": 1,
+              "type": "mcq",
+              "question": "Many fresh graduates are struggling to _____ a nine-to-five job.",
+              "image": null,
+              "options": [
+                {
+                  "text": "expand",
+                  "shuffle": true
+                },
+                {
+                  "text": "seek",
+                  "shuffle": true
+                },
+                {
+                  "text": "afford",
+                  "shuffle": true
+                },
+                {
+                  "text": "modernise",
+                  "shuffle": true
+                }
+              ],
+              "answer": 1,
+              "explanation": "Xét nghĩa các động từ:\n- expand (v): mở rộng\n- seek (v): tìm kiếm (seek a job = tìm việc)\n- afford (v): đủ khả năng chi trả\n- modernise (v): hiện đại hóa\nDịch nghĩa: Nhiều sinh viên mới ra trường đang chật vật tìm kiếm một công việc hành chính (làm từ 9 giờ sáng đến 5 giờ chiều). Chọn B."
+            },
+            {
+              "id": "cau_07",
+              "part": 1,
+              "type": "mcq",
+              "question": "The municipal authority is implementing new policies to address affordable _____ shortages.",
+              "image": null,
+              "options": [
+                {
+                  "text": "housing",
+                  "shuffle": true
+                },
+                {
+                  "text": "resident",
+                  "shuffle": true
+                },
+                {
+                  "text": "concern",
+                  "shuffle": true
+                },
+                {
+                  "text": "infrastructure",
+                  "shuffle": true
+                }
+              ],
+              "answer": 0,
+              "explanation": "Cụm danh từ cố định: \"affordable housing\" (nhà ở giá cả phải chăng).\nDịch nghĩa: Chính quyền thành phố đang triển khai các chính sách mới nhằm giải quyết tình trạng thiếu nhà ở giá phải chăng. Chọn A."
+            },
+            {
+              "id": "cau_08",
+              "part": 1,
+              "type": "mcq",
+              "question": "This is the first time my father _____ Ho Chi Minh's Mausoleum.",
+              "image": null,
+              "options": [
+                {
+                  "text": "visited",
+                  "shuffle": true
+                },
+                {
+                  "text": "visits",
+                  "shuffle": true
+                },
+                {
+                  "text": "has visited",
+                  "shuffle": true
+                },
+                {
+                  "text": "had visited",
+                  "shuffle": true
+                }
+              ],
+              "answer": 2,
+              "explanation": "Cấu trúc thì hiện tại hoàn thành với \"This is the first time\":\nThis is the first/second/... time + S + have/has + V3/ed.\nChủ ngữ \"my father\" là ngôi thứ 3 số ít nên dùng \"has visited\". Chọn C."
+            },
+            {
+              "id": "cau_09",
+              "part": 1,
+              "type": "mcq",
+              "question": "The well is getting _____ polluted, forcing villagers to seek alternative clean water sources.",
+              "image": null,
+              "options": [
+                {
+                  "text": "much and more",
+                  "shuffle": true
+                },
+                {
+                  "text": "much and much",
+                  "shuffle": true
+                },
+                {
+                  "text": "most and most",
+                  "shuffle": true
+                },
+                {
+                  "text": "more and more",
+                  "shuffle": true
+                }
+              ],
+              "answer": 3,
+              "explanation": "Cấu trúc so sánh kép lũy tiến (càng ngày càng...) với tính từ dài (polluted):\nmore and more + adj.\nDịch nghĩa: Cái giếng đang ngày càng bị ô nhiễm nặng hơn, buộc dân làng phải tìm kiếm các nguồn nước sạch thay thế. Chọn D."
+            },
+            {
+              "id": "cau_10",
+              "part": 1,
+              "type": "mcq",
+              "question": "The higher property prices are, _____ city dwellers can afford.",
+              "image": null,
+              "options": [
+                {
+                  "text": "the fewest",
+                  "shuffle": true
+                },
+                {
+                  "text": "fewer than",
+                  "shuffle": true
+                },
+                {
+                  "text": "the fewer",
+                  "shuffle": true
+                },
+                {
+                  "text": "the fewer than",
+                  "shuffle": true
+                }
+              ],
+              "answer": 2,
+              "explanation": "Cấu trúc so sánh kép đồng tiến (càng... càng...):\nThe + so sánh hơn + S1 + V1, the + so sánh hơn + S2 + V2.\nVế đầu dùng \"The higher\", nên vế sau cần \"the fewer\" (so sánh hơn của few). Chọn C."
+            },
+            {
+              "id": "cau_11",
+              "part": 1,
+              "type": "mcq",
+              "question": "Steve Jobs _____ the first iPhone in 2007.",
+              "image": null,
+              "options": [
+                {
+                  "text": "has developed",
+                  "shuffle": true
+                },
+                {
+                  "text": "developed",
+                  "shuffle": true
+                },
+                {
+                  "text": "develops",
+                  "shuffle": true
+                },
+                {
+                  "text": "was developing",
+                  "shuffle": true
+                }
+              ],
+              "answer": 1,
+              "explanation": "Câu có mốc thời gian xác định trong quá khứ \"in 2007\" nên chia động từ ở thì quá khứ đơn (V2/ed): \"developed\". Chọn B."
+            },
+            {
+              "id": "cau_12",
+              "part": 1,
+              "type": "mcq",
+              "question": "She has _____ designing a new website for the company.",
+              "image": null,
+              "options": [
+                {
+                  "text": "just finished",
+                  "shuffle": true
+                },
+                {
+                  "text": "just finishes",
+                  "shuffle": true
+                },
+                {
+                  "text": "finished just",
+                  "shuffle": true
+                },
+                {
+                  "text": "has just finish",
+                  "shuffle": true
+                }
+              ],
+              "answer": 0,
+              "explanation": "Thì hiện tại hoàn thành với trạng từ \"just\": S + have/has + just + V3/ed.\nĐề đã cho sẵn trợ động từ \"has\", nên chỗ trống điền \"just finished\". Chọn A."
+            },
+            {
+              "id": "cau_13",
+              "part": 1,
+              "type": "mcq",
+              "question": "While she _____ on her laptop, the power suddenly went out.",
+              "image": null,
+              "options": [
+                {
+                  "text": "works",
+                  "shuffle": true
+                },
+                {
+                  "text": "worked",
+                  "shuffle": true
+                },
+                {
+                  "text": "was working",
+                  "shuffle": true
+                },
+                {
+                  "text": "has been working",
+                  "shuffle": true
+                }
+              ],
+              "answer": 2,
+              "explanation": "Diễn tả một hành động đang xảy ra trong quá khứ (dùng quá khứ tiếp diễn: While + S + was/were + V-ing) thì có một hành động khác xen vào (quá khứ đơn: went out).\nChủ ngữ \"she\" đi với \"was working\". Chọn C."
+            },
+            {
+              "id": "cau_14",
+              "part": 1,
+              "type": "mcq",
+              "question": "I _____ programming languages since I was at secondary school.",
+              "image": null,
+              "options": [
+                {
+                  "text": "learned",
+                  "shuffle": true
+                },
+                {
+                  "text": "learn",
+                  "shuffle": true
+                },
+                {
+                  "text": "have learning",
+                  "shuffle": true
+                },
+                {
+                  "text": "have learned",
+                  "shuffle": true
+                }
+              ],
+              "answer": 3,
+              "explanation": "Cấu trúc phối hợp thì với \"since\": S + have/has + V3/ed + since + S + V2/ed (quá khứ đơn).\nChủ ngữ \"I\" dùng \"have learned\". Chọn D."
+            },
+            {
+              "id": "cau_15",
+              "part": 1,
+              "type": "mcq",
+              "question": "At 8 p.m. yesterday, he _____ code for a new software feature.",
+              "image": null,
+              "options": [
+                {
+                  "text": "writes",
+                  "shuffle": true
+                },
+                {
+                  "text": "is writing",
+                  "shuffle": true
+                },
+                {
+                  "text": "wrote",
+                  "shuffle": true
+                },
+                {
+                  "text": "was writing",
+                  "shuffle": true
+                }
+              ],
+              "answer": 3,
+              "explanation": "Câu có thời điểm cụ thể trong quá khứ \"At 8 p.m. yesterday\" nên chia thì quá khứ tiếp diễn (S + was/were + V-ing) để diễn tả hành động đang xảy ra tại thời điểm đó.\nChủ ngữ \"he\" đi với \"was writing\". Chọn D."
+            },
+            {
+              "id": "cau_16",
+              "part": 1,
+              "type": "mcq",
+              "question": "_____ any technology conferences recently?",
+              "image": null,
+              "options": [
+                {
+                  "text": "Did you attend",
+                  "shuffle": true
+                },
+                {
+                  "text": "Have you attending",
+                  "shuffle": true
+                },
+                {
+                  "text": "Have you attended",
+                  "shuffle": true
+                },
+                {
+                  "text": "Are you attending",
+                  "shuffle": true
+                }
+              ],
+              "answer": 2,
+              "explanation": "Trạng từ \"recently\" (gần đây) là dấu hiệu nhận biết của thì hiện tại hoàn thành. Dạng nghi vấn: Have/Has + S + V3/ed?\nVậy chọn \"Have you attended\". Chọn C."
+            },
+            {
+              "id": "cau_17",
+              "part": 1,
+              "type": "mcq",
+              "question": "When I called, they _____ the latest breakthrough in robotics.",
+              "image": null,
+              "options": [
+                {
+                  "text": "discuss",
+                  "shuffle": true
+                },
+                {
+                  "text": "were discussing",
+                  "shuffle": true
+                },
+                {
+                  "text": "has discussed",
+                  "shuffle": true
+                },
+                {
+                  "text": "had discussed",
+                  "shuffle": true
+                }
+              ],
+              "answer": 1,
+              "explanation": "Diễn tả một hành động đang diễn ra tại thời điểm một hành động quá khứ khác xen vào (When I called): dùng thì quá khứ tiếp diễn (S + was/were + V-ing).\nChủ ngữ \"they\" đi với \"were discussing\". Chọn B."
+            },
+            {
+              "id": "cau_18",
+              "part": 1,
+              "type": "mcq",
+              "question": "He _____ his computer to the latest operating system lately.",
+              "image": null,
+              "options": [
+                {
+                  "text": "upgrades",
+                  "shuffle": true
+                },
+                {
+                  "text": "did upgrade",
+                  "shuffle": true
+                },
+                {
+                  "text": "has upgraded",
+                  "shuffle": true
+                },
+                {
+                  "text": "is upgrading",
+                  "shuffle": true
+                }
+              ],
+              "answer": 2,
+              "explanation": "Trạng từ \"lately\" (gần đây) là dấu hiệu của thì hiện tại hoàn thành (S + have/has + V3/ed).\nChủ ngữ \"He\" đi với \"has upgraded\". Chọn C."
+            },
+            {
+              "id": "cau_19",
+              "part": 1,
+              "type": "mcq",
+              "question": "They _____ a tech conference in Silicon Valley last year.",
+              "image": null,
+              "options": [
+                {
+                  "text": "attend",
+                  "shuffle": true
+                },
+                {
+                  "text": "has attended",
+                  "shuffle": true
+                },
+                {
+                  "text": "attended",
+                  "shuffle": true
+                },
+                {
+                  "text": "are attending",
+                  "shuffle": true
+                }
+              ],
+              "answer": 2,
+              "explanation": "Trạng ngữ chỉ thời gian xác định trong quá khứ \"last year\" (năm ngoái) yêu cầu chia động từ ở thì quá khứ đơn (V2/ed): \"attended\". Chọn C."
+            },
+            {
+              "id": "cau_20",
+              "part": 1,
+              "type": "mcq",
+              "question": "Each child had to _____ a short speech to the rest of the class.",
+              "image": null,
+              "options": [
+                {
+                  "text": "do",
+                  "shuffle": true
+                },
+                {
+                  "text": "carry out",
+                  "shuffle": true
+                },
+                {
+                  "text": "make",
+                  "shuffle": true
+                },
+                {
+                  "text": "take",
+                  "shuffle": true
+                }
+              ],
+              "answer": 2,
+              "explanation": "Cụm động từ cố định (collocation): \"make a speech\" (hoặc give/deliver a speech) = có bài phát biểu / thuyết trình.\nDịch nghĩa: Mỗi đứa trẻ phải có một bài phát biểu ngắn trước cả lớp. Chọn C."
+            },
+            {
+              "id": "cau_21",
+              "part": 1,
+              "type": "mcq",
+              "question": "Although it was more than an hour late, the superstar finally showed up and _____ the attention of the audience.",
+              "image": null,
+              "options": [
+                {
+                  "text": "grabbed",
+                  "shuffle": true
+                },
+                {
+                  "text": "held",
+                  "shuffle": true
+                },
+                {
+                  "text": "paid",
+                  "shuffle": true
+                },
+                {
+                  "text": "took",
+                  "shuffle": true
+                }
+              ],
+              "answer": 0,
+              "explanation": "Cụm động từ cố định (collocation): \"grab/catch/attract the attention of sb\" = thu hút sự chú ý của ai đó (còn \"pay attention to sb/sth\" mang nghĩa chú ý tới cái gì).\nDịch nghĩa: Dù muộn hơn một tiếng đồng hồ, siêu sao cuối cùng cũng xuất hiện và thu hút sự chú ý của khán giả. Chọn A."
+            },
+            {
+              "id": "cau_22",
+              "part": 1,
+              "type": "mcq",
+              "question": "Has the interviewer _____ the date? Yes, it's on next Monday.",
+              "image": null,
+              "options": [
+                {
+                  "text": "amend",
+                  "shuffle": true
+                },
+                {
+                  "text": "fixed",
+                  "shuffle": true
+                },
+                {
+                  "text": "moved",
+                  "shuffle": true
+                },
+                {
+                  "text": "revised",
+                  "shuffle": true
+                }
+              ],
+              "answer": 1,
+              "explanation": "Cụm động từ cố định: \"fix a date\" = ấn định ngày (sau \"Has + S\" cần động từ phân từ V3/ed nên loại A; dựa vào câu trả lời \"Yes, it's on next Monday\" mang nghĩa đã chốt ngày phỏng vấn nên chọn \"fixed\"). Chọn B."
+            },
+            {
+              "id": "cau_23",
+              "part": 1,
+              "type": "mcq",
+              "question": "Don't worry. We're in good time; there's _____ to hurry.",
+              "image": null,
+              "options": [
+                {
+                  "text": "impossible",
+                  "shuffle": true
+                },
+                {
+                  "text": "no need",
+                  "shuffle": true
+                },
+                {
+                  "text": "no purpose",
+                  "shuffle": true
+                },
+                {
+                  "text": "unnecessary",
+                  "shuffle": true
+                }
+              ],
+              "answer": 1,
+              "explanation": "Cấu trúc cố định: \"There is no need to do sth\" = không cần thiết phải làm gì.\nDịch nghĩa: Đừng lo. Chúng ta còn dư thời gian; không cần phải vội đâu. Chọn B."
+            },
+            {
+              "id": "cau_24",
+              "part": 1,
+              "type": "mcq",
+              "question": "Overpopulation in urban areas tends to create unfavourable conditions, which may result in _____ of food in developing countries.",
+              "image": null,
+              "options": [
+                {
+                  "text": "damages",
+                  "shuffle": true
+                },
+                {
+                  "text": "failures",
+                  "shuffle": true
+                },
+                {
+                  "text": "shortages",
+                  "shuffle": true
+                },
+                {
+                  "text": "supplies",
+                  "shuffle": true
+                }
+              ],
+              "answer": 2,
+              "explanation": "Xét nghĩa các danh từ:\n- damages (n): thiệt hại\n- failures (n): sự thất bại\n- shortages (n): sự thiếu hụt (shortages of food = tình trạng thiếu lương thực)\n- supplies (n): nguồn cung cấp\nDịch nghĩa: Bùng nổ dân số ở khu vực đô thị có xu hướng tạo ra các điều kiện bất lợi, có thể dẫn đến tình trạng thiếu lương thực ở các nước đang phát triển. Chọn C."
+            },
+            {
+              "id": "cau_25",
+              "part": 1,
+              "type": "mcq",
+              "question": "Urbanisation has created numerous opportunities for _____ in industries like technology, construction, and finance.",
+              "image": null,
+              "options": [
+                {
+                  "text": "unemployment",
+                  "shuffle": true
+                },
+                {
+                  "text": "employment",
+                  "shuffle": true
+                },
+                {
+                  "text": "employer",
+                  "shuffle": true
+                },
+                {
+                  "text": "unemployed",
+                  "shuffle": true
+                }
+              ],
+              "answer": 1,
+              "explanation": "Sau giới từ \"for\" cần một danh từ phù hợp với ngữ cảnh tích cực \"created numerous opportunities\" (tạo ra vô số cơ hội):\n- unemployment (n): sự thất nghiệp\n- employment (n): việc làm\n- employer (n): nhà tuyển dụng\n- unemployed (adj): thất nghiệp\nDịch nghĩa: Đô thị hóa đã tạo ra rất nhiều cơ hội việc làm trong các ngành như công nghệ, xây dựng và tài chính. Chọn B."
+            },
+            {
+              "id": "cau_26",
+              "part": 1,
+              "type": "mcq",
+              "question": "After only a month, my brother got bored at work and found his job _____ attractive.",
+              "image": null,
+              "options": [
+                {
+                  "text": "the least",
+                  "shuffle": true
+                },
+                {
+                  "text": "more or less",
+                  "shuffle": true
+                },
+                {
+                  "text": "more and more",
+                  "shuffle": true
+                },
+                {
+                  "text": "less and less",
+                  "shuffle": true
+                }
+              ],
+              "answer": 3,
+              "explanation": "Cấu trúc so sánh kép lũy tiến giảm dần: \"less and less + adj\" (càng ngày càng ít/kém...).\nNgữ cảnh \"got bored at work\" (chán công việc) nên thấy công việc càng ngày càng kém hấp dẫn (less and less attractive). Chọn D."
+            },
+            {
+              "id": "cau_27",
+              "part": 1,
+              "type": "mcq",
+              "question": "The more people move to the big city, _____ pollution becomes.",
+              "image": null,
+              "options": [
+                {
+                  "text": "the more",
+                  "shuffle": true
+                },
+                {
+                  "text": "worse",
+                  "shuffle": true
+                },
+                {
+                  "text": "the worse",
+                  "shuffle": true
+                },
+                {
+                  "text": "the worst",
+                  "shuffle": true
+                }
+              ],
+              "answer": 2,
+              "explanation": "Cấu trúc so sánh kép đồng tiến: The + so sánh hơn + S1 + V1, the + so sánh hơn + S2 + V2.\nSo sánh hơn của tính từ \"bad\" là \"worse\", nên vế sau là \"the worse\".\nDịch nghĩa: Càng nhiều người chuyển lên thành phố lớn thì tình trạng ô nhiễm càng trở nên tồi tệ hơn. Chọn C."
+            },
+            {
+              "id": "cau_28",
+              "part": 1,
+              "type": "mcq",
+              "question": "Many people find it difficult to _____ an apartment in the city due to the rising cost of rent.",
+              "image": null,
+              "options": [
+                {
+                  "text": "afford",
+                  "shuffle": true
+                },
+                {
+                  "text": "urbanise",
+                  "shuffle": true
+                },
+                {
+                  "text": "reside",
+                  "shuffle": true
+                },
+                {
+                  "text": "reduce",
+                  "shuffle": true
+                }
+              ],
+              "answer": 0,
+              "explanation": "Xét nghĩa các động từ:\n- afford (v): có đủ khả năng chi trả (afford sth / afford to do sth)\n- urbanise (v): đô thị hóa\n- reside (v): cư trú (thường đi với in)\n- reduce (v): cắt giảm\nDịch nghĩa: Nhiều người cảm thấy khó có đủ tiền chi trả cho một căn hộ ở thành phố do giá thuê nhà tăng cao. Chọn A."
+            },
+            {
+              "id": "cau_29",
+              "part": 1,
+              "type": "mcq",
+              "question": "High-rise buildings are a common feature in urban areas, especially where land for development is _____.",
+              "image": null,
+              "options": [
+                {
+                  "text": "increase",
+                  "shuffle": true
+                },
+                {
+                  "text": "decrease",
+                  "shuffle": true
+                },
+                {
+                  "text": "limited",
+                  "shuffle": true
+                },
+                {
+                  "text": "abundant",
+                  "shuffle": true
+                }
+              ],
+              "answer": 2,
+              "explanation": "Sau động từ to be \"is\" cần một tính từ phù hợp ngữ nghĩa:\n- limited (adj): hạn chế, có giới hạn\n- abundant (adj): dồi dào\n(increase và decrease là động từ/danh từ).\nDịch nghĩa: Các tòa nhà cao tầng là nét đặc trưng phổ biến ở khu vực đô thị, đặc biệt là nơi quỹ đất phát triển bị hạn chế. Chọn C."
+            },
+            {
+              "id": "cau_30",
+              "part": 1,
+              "type": "mcq",
+              "question": "The process of urbanisation is often associated with a significant reduction in _____.",
+              "image": null,
+              "options": [
+                {
+                  "text": "rural areas",
+                  "shuffle": true
+                },
+                {
+                  "text": "urban areas",
+                  "shuffle": true
+                },
+                {
+                  "text": "industrial parks",
+                  "shuffle": true
+                },
+                {
+                  "text": "crowded areas",
+                  "shuffle": true
+                }
+              ],
+              "answer": 0,
+              "explanation": "Xét nghĩa:\n- rural areas: các khu vực nông thôn\n- urban areas: các khu vực đô thị\n- industrial parks: các khu công nghiệp\n- crowded areas: các khu vực đông đúc\nDịch nghĩa: Quá trình đô thị hóa thường gắn liền với sự thu hẹp đáng kể của các khu vực nông thôn. Chọn A."
+            },
+            {
+              "id": "cau_31",
+              "part": 1,
+              "type": "mcq",
+              "question": "_____ attention paid to public transportation systems, _____ people are forced to rely on private vehicles, causing severe traffic congestion and environmental damage.",
+              "image": null,
+              "options": [
+                {
+                  "text": "The more / the less",
+                  "shuffle": true
+                },
+                {
+                  "text": "The less / the most",
+                  "shuffle": true
+                },
+                {
+                  "text": "The less / the more",
+                  "shuffle": true
+                },
+                {
+                  "text": "the least / the more",
+                  "shuffle": true
+                }
+              ],
+              "answer": 2,
+              "explanation": "Cấu trúc so sánh kép đồng tiến: The + so sánh hơn..., the + so sánh hơn...\nXét về nghĩa: Càng ít sự quan tâm dành cho hệ thống giao thông công cộng (The less), càng nhiều người buộc phải phụ thuộc vào phương tiện cá nhân (the more), gây ra ùn tắc giao thông và tổn hại môi trường nghiêm trọng. Chọn C."
+            },
+            {
+              "id": "cau_32",
+              "part": 1,
+              "type": "mcq",
+              "question": "The well is getting _____ polluted, forcing villagers to seek alternative clean water sources.",
+              "image": null,
+              "options": [
+                {
+                  "text": "much and more",
+                  "shuffle": true
+                },
+                {
+                  "text": "much and much",
+                  "shuffle": true
+                },
+                {
+                  "text": "most and most",
+                  "shuffle": true
+                },
+                {
+                  "text": "more and more",
+                  "shuffle": true
+                }
+              ],
+              "answer": 3,
+              "explanation": "Cấu trúc so sánh kép lũy tiến với tính từ dài \"polluted\": more and more + adj (càng ngày càng bị ô nhiễm). Chọn D."
+            },
+            {
+              "id": "cau_33",
+              "part": 1,
+              "type": "mcq",
+              "question": "The higher property prices are, _____ city dwellers can afford.",
+              "image": null,
+              "options": [
+                {
+                  "text": "the fewest",
+                  "shuffle": true
+                },
+                {
+                  "text": "fewer than",
+                  "shuffle": true
+                },
+                {
+                  "text": "the fewer",
+                  "shuffle": true
+                },
+                {
+                  "text": "the fewer than",
+                  "shuffle": true
+                }
+              ],
+              "answer": 2,
+              "explanation": "Cấu trúc so sánh kép đồng tiến: The + so sánh hơn..., the + so sánh hơn...\nVế đầu là \"The higher\", vế sau là \"the fewer\" (giá bất động sản càng cao thì càng ít cư dân thành phố có khả năng chi trả). Chọn C."
+            },
+            {
+              "id": "cau_34",
+              "part": 1,
+              "type": "mcq",
+              "question": "Due to rapid urbanisation, our city is becoming _____.",
+              "image": null,
+              "options": [
+                {
+                  "text": "bigger and bigger",
+                  "shuffle": true
+                },
+                {
+                  "text": "big and bigger",
+                  "shuffle": true
+                },
+                {
+                  "text": "bigger and big",
+                  "shuffle": true
+                },
+                {
+                  "text": "big and big",
+                  "shuffle": true
+                }
+              ],
+              "answer": 0,
+              "explanation": "Cấu trúc so sánh kép lũy tiến với tính từ ngắn \"big\": adj-er and adj-er -> \"bigger and bigger\" (càng ngày càng lớn hơn). Chọn A."
+            },
+            {
+              "id": "cau_35",
+              "part": 1,
+              "type": "mcq",
+              "question": "It is getting _____ difficult for young people to find jobs if they don't have any skills.",
+              "image": null,
+              "options": [
+                {
+                  "text": "much and more",
+                  "shuffle": true
+                },
+                {
+                  "text": "more and more",
+                  "shuffle": true
+                },
+                {
+                  "text": "more and much",
+                  "shuffle": true
+                },
+                {
+                  "text": "much and much",
+                  "shuffle": true
+                }
+              ],
+              "answer": 1,
+              "explanation": "Cấu trúc so sánh kép lũy tiến với tính từ dài \"difficult\": more and more + adj -> \"more and more difficult\" (càng ngày càng khó khăn). Chọn B."
+            },
+            {
+              "id": "cau_36",
+              "part": 1,
+              "type": "mcq",
+              "question": "The population in metropolitan cities is growing _____, creating challenges for housing and infrastructure development.",
+              "image": null,
+              "options": [
+                {
+                  "text": "more and more rapid",
+                  "shuffle": true
+                },
+                {
+                  "text": "more and more rapidly",
+                  "shuffle": true
+                },
+                {
+                  "text": "more and less rapidly",
+                  "shuffle": true
+                },
+                {
+                  "text": "more rapidly",
+                  "shuffle": true
+                }
+              ],
+              "answer": 1,
+              "explanation": "Bổ nghĩa cho động từ \"growing\" cần trạng từ \"rapidly\". Cấu trúc so sánh kép lũy tiến với trạng từ dài: \"more and more rapidly\" (càng ngày càng nhanh chóng). Chọn B."
+            },
+            {
+              "id": "cau_37",
+              "part": 1,
+              "type": "mcq",
+              "question": "The bigger the city grows in terms of population, _____ complex urban planning and management become for local governments.",
+              "image": null,
+              "options": [
+                {
+                  "text": "less and less",
+                  "shuffle": true
+                },
+                {
+                  "text": "the most",
+                  "shuffle": true
+                },
+                {
+                  "text": "the more",
+                  "shuffle": true
+                },
+                {
+                  "text": "the least",
+                  "shuffle": true
+                }
+              ],
+              "answer": 2,
+              "explanation": "Cấu trúc so sánh kép đồng tiến: The + so sánh hơn (The bigger)..., the + so sánh hơn (the more complex).\nDịch nghĩa: Thành phố càng phát triển lớn hơn về mặt dân số, công tác quy hoạch và quản lý đô thị càng trở nên phức tạp hơn đối với chính quyền địa phương. Chọn C."
+            },
+            {
+              "id": "cau_38",
+              "part": 1,
+              "type": "mcq",
+              "question": "Read the following passage and choose the correct option to fill in the blank:\nIn 2018, the United Nations announced that Singapore was completely (38) _____ as 100 per cent of its population is defined as \"urban\". Urbanisation has brought both benefits and disadvantages to the small city-state. On the one hand, Singapore (39) _____ a lot of skilled workers from many other countries to ensure the economy continues to grow. Migrants have also helped create a (40) _____ diverse society in Singapore.\nOn the [other] (41) _____, urbanisation has caused some serious problems such as deforestation, overpopulation, and waste (42) _____. Since it was first colonised by the British in 1819 and Singapore was formally founded, over 95 per cent of its vegetation has been cleared. In terms of population (43) _____, in many parts of Singapore, there are over 20,000 people living per square kilometre. Waste treatment used to be another problem in Singapore.\n\nQuestion 38: Choose the correct option for blank (38).",
+              "image": null,
+              "options": [
+                {
+                  "text": "urbanized",
+                  "shuffle": true
+                },
+                {
+                  "text": "urbanize",
+                  "shuffle": true
+                },
+                {
+                  "text": "to urbanize",
+                  "shuffle": true
+                },
+                {
+                  "text": "urban",
+                  "shuffle": true
+                }
+              ],
+              "answer": 0,
+              "explanation": "Cấu trúc bị động / tính từ quá khứ phân từ sau \"was completely\": \"was completely urbanized\" (đã được đô thị hóa hoàn toàn). Chọn A."
+            },
+            {
+              "id": "cau_39",
+              "part": 1,
+              "type": "mcq",
+              "question": "Read the following passage and choose the correct option to fill in the blank:\nIn 2018, the United Nations announced that Singapore was completely (38) _____ as 100 per cent of its population is defined as \"urban\". Urbanisation has brought both benefits and disadvantages to the small city-state. On the one hand, Singapore (39) _____ a lot of skilled workers from many other countries to ensure the economy continues to grow. Migrants have also helped create a (40) _____ diverse society in Singapore.\nOn the [other] (41) _____, urbanisation has caused some serious problems such as deforestation, overpopulation, and waste (42) _____. Since it was first colonised by the British in 1819 and Singapore was formally founded, over 95 per cent of its vegetation has been cleared. In terms of population (43) _____, in many parts of Singapore, there are over 20,000 people living per square kilometre. Waste treatment used to be another problem in Singapore.\n\nQuestion 39: Choose the correct option for blank (39).",
+              "image": null,
+              "options": [
+                {
+                  "text": "attracted",
+                  "shuffle": true
+                },
+                {
+                  "text": "has attracted",
+                  "shuffle": true
+                },
+                {
+                  "text": "have attracted",
+                  "shuffle": true
+                },
+                {
+                  "text": "is attracted",
+                  "shuffle": true
+                }
+              ],
+              "answer": 1,
+              "explanation": "Mạch văn của đoạn đang dùng thì hiện tại hoàn thành để diễn tả những tác động kéo dài từ quá khứ đến hiện tại (has brought, have also helped, has caused). Chủ ngữ \"Singapore\" là danh từ số ít, nghĩa chủ động (thu hút nhiều lao động có tay nghề), nên chọn \"has attracted\". Chọn B."
+            },
+            {
+              "id": "cau_40",
+              "part": 1,
+              "type": "mcq",
+              "question": "Read the following passage and choose the correct option to fill in the blank:\nIn 2018, the United Nations announced that Singapore was completely (38) _____ as 100 per cent of its population is defined as \"urban\". Urbanisation has brought both benefits and disadvantages to the small city-state. On the one hand, Singapore (39) _____ a lot of skilled workers from many other countries to ensure the economy continues to grow. Migrants have also helped create a (40) _____ diverse society in Singapore.\nOn the [other] (41) _____, urbanisation has caused some serious problems such as deforestation, overpopulation, and waste (42) _____. Since it was first colonised by the British in 1819 and Singapore was formally founded, over 95 per cent of its vegetation has been cleared. In terms of population (43) _____, in many parts of Singapore, there are over 20,000 people living per square kilometre. Waste treatment used to be another problem in Singapore.\n\nQuestion 40: Choose the correct option for blank (40).",
+              "image": null,
+              "options": [
+                {
+                  "text": "cultural",
+                  "shuffle": true
+                },
+                {
+                  "text": "more culturally",
+                  "shuffle": true
+                },
+                {
+                  "text": "more cultural",
+                  "shuffle": true
+                },
+                {
+                  "text": "culturally",
+                  "shuffle": true
+                }
+              ],
+              "answer": 3,
+              "explanation": "Trước tính từ \"diverse\" (đa dạng) cần một trạng từ để bổ nghĩa: \"culturally diverse\" (đa dạng về mặt văn hóa). Câu không mang ý so sánh nên chọn \"culturally\" (không dùng \"more culturally\"). Chọn D."
+            },
+            {
+              "id": "cau_41",
+              "part": 1,
+              "type": "mcq",
+              "question": "Read the following passage and choose the correct option to fill in the blank:\nIn 2018, the United Nations announced that Singapore was completely (38) _____ as 100 per cent of its population is defined as \"urban\". Urbanisation has brought both benefits and disadvantages to the small city-state. On the one hand, Singapore (39) _____ a lot of skilled workers from many other countries to ensure the economy continues to grow. Migrants have also helped create a (40) _____ diverse society in Singapore.\nOn the [other] (41) _____, urbanisation has caused some serious problems such as deforestation, overpopulation, and waste (42) _____. Since it was first colonised by the British in 1819 and Singapore was formally founded, over 95 per cent of its vegetation has been cleared. In terms of population (43) _____, in many parts of Singapore, there are over 20,000 people living per square kilometre. Waste treatment used to be another problem in Singapore.\n\nQuestion 41: Choose the correct option for blank (41).",
+              "image": null,
+              "options": [
+                {
+                  "text": "hands",
+                  "shuffle": true
+                },
+                {
+                  "text": "arms",
+                  "shuffle": true
+                },
+                {
+                  "text": "leg",
+                  "shuffle": true
+                },
+                {
+                  "text": "hand",
+                  "shuffle": true
+                }
+              ],
+              "answer": 3,
+              "explanation": "Cụm từ cố định dùng để đối lập với \"On the one hand\" ở đoạn trên là \"On the other hand\" (mặt khác; lưu ý đề in bị thiếu chữ \"other\", nhưng danh từ số ít cần điền vẫn là \"hand\"). Chọn D."
+            },
+            {
+              "id": "cau_42",
+              "part": 1,
+              "type": "mcq",
+              "question": "Read the following passage and choose the correct option to fill in the blank:\nIn 2018, the United Nations announced that Singapore was completely (38) _____ as 100 per cent of its population is defined as \"urban\". Urbanisation has brought both benefits and disadvantages to the small city-state. On the one hand, Singapore (39) _____ a lot of skilled workers from many other countries to ensure the economy continues to grow. Migrants have also helped create a (40) _____ diverse society in Singapore.\nOn the [other] (41) _____, urbanisation has caused some serious problems such as deforestation, overpopulation, and waste (42) _____. Since it was first colonised by the British in 1819 and Singapore was formally founded, over 95 per cent of its vegetation has been cleared. In terms of population (43) _____, in many parts of Singapore, there are over 20,000 people living per square kilometre. Waste treatment used to be another problem in Singapore.\n\nQuestion 42: Choose the correct option for blank (42).",
+              "image": null,
+              "options": [
+                {
+                  "text": "manage",
+                  "shuffle": true
+                },
+                {
+                  "text": "managers",
+                  "shuffle": true
+                },
+                {
+                  "text": "management",
+                  "shuffle": true
+                },
+                {
+                  "text": "time-management",
+                  "shuffle": true
+                }
+              ],
+              "answer": 2,
+              "explanation": "Cụm danh từ cố định: \"waste management\" (quản lý chất thải), song song về cấu trúc danh từ với \"deforestation\" và \"overpopulation\". Chọn C."
+            },
+            {
+              "id": "cau_43",
+              "part": 1,
+              "type": "mcq",
+              "question": "Read the following passage and choose the correct option to fill in the blank:\nIn 2018, the United Nations announced that Singapore was completely (38) _____ as 100 per cent of its population is defined as \"urban\". Urbanisation has brought both benefits and disadvantages to the small city-state. On the one hand, Singapore (39) _____ a lot of skilled workers from many other countries to ensure the economy continues to grow. Migrants have also helped create a (40) _____ diverse society in Singapore.\nOn the [other] (41) _____, urbanisation has caused some serious problems such as deforestation, overpopulation, and waste (42) _____. Since it was first colonised by the British in 1819 and Singapore was formally founded, over 95 per cent of its vegetation has been cleared. In terms of population (43) _____, in many parts of Singapore, there are over 20,000 people living per square kilometre. Waste treatment used to be another problem in Singapore.\n\nQuestion 43: Choose the correct option for blank (43).",
+              "image": null,
+              "options": [
+                {
+                  "text": "density",
+                  "shuffle": true
+                },
+                {
+                  "text": "crowd",
+                  "shuffle": true
+                },
+                {
+                  "text": "high",
+                  "shuffle": true
+                },
+                {
+                  "text": "heavy",
+                  "shuffle": true
+                }
+              ],
+              "answer": 0,
+              "explanation": "Cụm danh từ cố định: \"population density\" (mật độ dân số), khớp với giải thích phía sau \"over 20,000 people living per square kilometre\" (hơn 20.000 người sinh sống trên mỗi ki-lô-mét vuông). Chọn A."
+            },
+            {
+              "id": "cau_44",
+              "part": 1,
+              "type": "mcq",
+              "question": "This is the first time I _____ such a busy city.",
+              "image": null,
+              "options": [
+                {
+                  "text": "have seen",
+                  "shuffle": true
+                },
+                {
+                  "text": "see",
+                  "shuffle": true
+                },
+                {
+                  "text": "saw",
+                  "shuffle": true
+                },
+                {
+                  "text": "had seen",
+                  "shuffle": true
+                }
+              ],
+              "answer": 0,
+              "explanation": "Cấu trúc thì hiện tại hoàn thành: This is the first time + S + have/has + V3/ed.\nChủ ngữ \"I\" đi với \"have seen\". Chọn A."
+            },
+            {
+              "id": "cau_45",
+              "part": 1,
+              "type": "mcq",
+              "question": "_____ we invest in rural areas, _____ we can help people there.",
+              "image": null,
+              "options": [
+                {
+                  "text": "The more / the more",
+                  "shuffle": true
+                },
+                {
+                  "text": "The much / the more",
+                  "shuffle": true
+                },
+                {
+                  "text": "The best / the better",
+                  "shuffle": true
+                },
+                {
+                  "text": "The most / the best",
+                  "shuffle": true
+                }
+              ],
+              "answer": 0,
+              "explanation": "Cấu trúc so sánh kép đồng tiến: The more + S1 + V1, the more + S2 + V2.\nDịch nghĩa: Chúng ta càng đầu tư nhiều vào các khu vực nông thôn, chúng ta càng có thể giúp đỡ người dân ở đó nhiều hơn. Chọn A."
+            },
+            {
+              "id": "cau_46",
+              "part": 1,
+              "type": "mcq",
+              "question": "Thanks to the progress of science and technology, our lives have become _____.",
+              "image": null,
+              "options": [
+                {
+                  "text": "more and more good",
+                  "shuffle": true
+                },
+                {
+                  "text": "better and better",
+                  "shuffle": true
+                },
+                {
+                  "text": "more and more well",
+                  "shuffle": true
+                },
+                {
+                  "text": "worse and worse",
+                  "shuffle": true
+                }
+              ],
+              "answer": 1,
+              "explanation": "So sánh kép lũy tiến của tính từ bất quy tắc \"good\" là \"better and better\" (càng ngày càng tốt đẹp hơn), phù hợp với ngữ cảnh tích cực \"Thanks to the progress of science and technology\". Chọn B."
+            },
+            {
+              "id": "cau_47",
+              "part": 1,
+              "type": "mcq",
+              "question": "\"Ha Noi Then and Now\" exhibition _____ thousands of visitors this week.",
+              "image": null,
+              "options": [
+                {
+                  "text": "will attract",
+                  "shuffle": true
+                },
+                {
+                  "text": "attracts",
+                  "shuffle": true
+                },
+                {
+                  "text": "has attracted",
+                  "shuffle": true
+                },
+                {
+                  "text": "attracted",
+                  "shuffle": true
+                }
+              ],
+              "answer": 2,
+              "explanation": "Cụm từ \"this week\" (tuần này — khoảng thời gian chưa kết thúc tính đến hiện tại) kết hợp với hành động đã và đang xảy ra nên dùng thì hiện tại hoàn thành: \"has attracted\". Chọn C."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -34,5 +34,11 @@
     "name": "Giáo dục Quốc phòng",
     "icon": "🛡️",
     "sources": ["truong"]
+  },
+  {
+    "id": "tienganh",
+    "name": "Tiếng Anh",
+    "icon": "🇬🇧",
+    "sources": ["truong"]
   }
 ]

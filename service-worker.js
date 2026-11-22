@@ -10,7 +10,7 @@
    Dev by Thkc
    ========================================================================== */
 
-const CACHE_VERSION = 'thkc-quiz-v2.8.3';
+const CACHE_VERSION = 'thkc-quiz-v2.8.4';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
@@ -54,7 +54,7 @@ const PRECACHE_ASSETS = [
   './js/ui/settings-modal.js',
   './js/ui/geogebra-modal.js',
 
-  // Data JSON (6 môn)
+  // Data JSON (7 môn)
   './data/subjects.json',
   './data/toan-truong.json',
   './data/toan-ngoai.json',
@@ -65,6 +65,7 @@ const PRECACHE_ASSETS = [
   './data/hoahoc-truong.json',
   './data/sinhhoc-truong.json',
   './data/gdqp-truong.json',
+  './data/tienganh-truong.json',
 
   // Hình ảnh & Icons
   './images/sample.jpg',

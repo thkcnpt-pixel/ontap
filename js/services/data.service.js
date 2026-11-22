@@ -233,6 +233,22 @@ export const DEFAULT_VATLY_NGOAI_CATEGORIES = Object.freeze([
 ]);
 
 /**
+ * Cấu trúc danh mục mặc định cho Tiếng Anh > Đề trường.
+ */
+export const DEFAULT_TIENGANH_TRUONG_CATEGORIES = Object.freeze([
+  {
+    id: 'de_tienganh_truong',
+    name: 'Đề kiểm tra Tiếng Anh',
+    icon: '🇬🇧',
+    description: 'Các bài kiểm tra và đề ôn tập Tiếng Anh',
+    chapters: [],
+    lessons: [
+      { id: 'test-15p-23-11', name: 'Test 15p (23/11)', questions: [] },
+    ],
+  },
+]);
+
+/**
  * Cache theo file:
  * "toan-truong" -> { kind: 'flat', questions: Question[], categories: [] }
  * "toan-ngoai"  -> { kind: 'nested', questions: Question[], categories: CategoryNode[] }
@@ -347,11 +363,12 @@ export function getSubjectById(id) {
  * @returns {boolean}
  */
 export function requiresCategoryStep(subjectId, source) {
+  if (subjectId === 'tienganh' && source === SOURCES.TRUONG) return true;
   return (subjectId === 'toan' || subjectId === 'tinhoc' || subjectId === 'vatly') && source === SOURCES.NGOAI;
 }
 
 /* --------------------------------------------------------------------------
-   Truy xuất Danh mục Chuyên đề & Bài nhỏ (dành cho Toán / Tin học / Vật lí > Đề ngoài)
+   Truy xuất Danh mục Chuyên đề & Bài nhỏ (dành cho Toán / Tin học / Vật lí > Đề ngoài, Tiếng Anh > Đề trường)
    -------------------------------------------------------------------------- */
 
 /**
@@ -379,6 +396,9 @@ export async function loadNestedCategories(subjectId, source) {
   }
   if (subjectId === 'vatly' && source === SOURCES.NGOAI) {
     return structuredClone(DEFAULT_VATLY_NGOAI_CATEGORIES);
+  }
+  if (subjectId === 'tienganh' && source === SOURCES.TRUONG) {
+    return structuredClone(DEFAULT_TIENGANH_TRUONG_CATEGORIES);
   }
   return [];
 }
